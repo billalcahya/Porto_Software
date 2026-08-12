@@ -57,51 +57,53 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
   return (
     <>
       <Navbar siteName={settings?.siteName} />
-      <main className="pt-32 pb-24 bg-zinc-950 text-white min-h-screen">
+      <main className="pt-36 pb-28 bg-[#F7F7F5] text-zinc-900 min-h-screen">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-white transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase text-zinc-500 hover:text-zinc-950 transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Articles
           </Link>
 
           {/* Article Header */}
           <div className="space-y-4 mb-8">
-            <Badge variant="glow">{post.category}</Badge>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            <Badge variant="outline" className="bg-white border-zinc-200 text-zinc-900 font-mono text-xs uppercase px-3 py-1">
+              {post.category}
+            </Badge>
+            <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-zinc-950 leading-tight">
               {post.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-6 pt-2 text-xs font-mono text-zinc-400 border-y border-zinc-900 py-4">
+            <div className="flex flex-wrap items-center gap-6 pt-2 text-xs font-mono text-zinc-500 border-y border-zinc-200/80 py-4">
               <div className="flex items-center gap-2">
-                <User className="w-4 h-4 text-blue-400" />
-                <span>{post.author}</span>
+                <User className="w-4 h-4 text-blue-600" />
+                <span className="font-bold text-zinc-800">{post.author}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-indigo-400" />
+                <Calendar className="w-4 h-4 text-indigo-600" />
                 <span>{formatDate(post.publishedAt || post.createdAt)}</span>
               </div>
             </div>
           </div>
 
           {/* Thumbnail */}
-          <div className="relative h-56 sm:h-80 md:h-96 w-full rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl mb-12 bg-zinc-900">
+          <div className="relative h-60 sm:h-96 md:h-112 w-full rounded-3xl overflow-hidden border border-black/8 shadow-xl mb-12 bg-zinc-100">
             <Image src={post.thumbnail} alt={post.title} fill priority className="object-cover" />
           </div>
 
           {/* Content Body */}
-          <div className="glass-card p-5 sm:p-8 md:p-12 rounded-3xl border-zinc-800 bg-zinc-950/80 leading-relaxed text-zinc-300 space-y-6 text-sm sm:text-base font-sans whitespace-pre-wrap">
+          <div className="bg-white p-6 sm:p-10 md:p-14 rounded-3xl border border-black/8 shadow-xs leading-relaxed text-zinc-800 space-y-6 text-base sm:text-lg font-sans whitespace-pre-wrap">
             {post.content}
           </div>
 
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
-            <div className="mt-8 pt-6 border-t border-zinc-900 flex items-center gap-3">
-              <Tag className="w-4 h-4 text-zinc-500" />
+            <div className="mt-8 pt-6 border-t border-zinc-200 flex items-center gap-3">
+              <Tag className="w-4 h-4 text-zinc-400" />
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag: string, idx: number) => (
-                  <span key={idx} className="text-xs font-mono px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400">
+                  <span key={idx} className="text-xs font-mono px-3 py-1 rounded-full bg-white border border-zinc-200 text-zinc-600 font-semibold shadow-xs">
                     #{tag}
                   </span>
                 ))}

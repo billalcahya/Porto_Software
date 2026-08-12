@@ -30,7 +30,7 @@ export function AdminHeader({
             <Menu className="w-5 h-5" />
           </button>
         )}
-        <h1 className="text-base sm:text-lg font-bold text-white tracking-tight truncate max-w-[180px] sm:max-w-none">
+        <h1 className="text-base sm:text-lg font-bold text-white tracking-tight truncate max-w-45 sm:max-w-none">
           {title || "Dashboard Overview"}
         </h1>
       </div>

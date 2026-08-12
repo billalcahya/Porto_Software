@@ -31,7 +31,7 @@ export default async function PublicPortfolioPage() {
   return (
     <>
       <Navbar siteName={settings?.siteName} />
-      <main className="pt-24 min-h-screen bg-zinc-950">
+      <main className="pt-24 min-h-screen bg-[#F7F7F5]">
         <PortfolioSection portfolios={portfolios} />
       </main>
       <Footer settings={settings} />

@@ -3,24 +3,26 @@
 @layer base {
   :root {
     --background: #ffffff;
-    --surface: #f8fafc;
-    --surface-hover: #f1f5f9;
-    --foreground: #09090b;
-    --muted: #64748b;
-    --muted-foreground: #475569;
+    --secondary-bg: #f7f7f5;
+    --surface: #fafafa;
+    --surface-hover: #f3f3f0;
+    --foreground: #111111;
+    --muted: #666666;
+    --muted-foreground: #999999;
     --border: rgba(0, 0, 0, 0.08);
-    --primary: #0f172a;
+    --primary: #111111;
     --primary-foreground: #ffffff;
-    --accent: #3b82f6;
-    --accent-glow: rgba(59, 130, 246, 0.25);
-    --glass-bg: rgba(255, 255, 255, 0.7);
+    --accent: #2563eb;
+    --accent-glow: rgba(37, 99, 235, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(0, 0, 0, 0.08);
   }
 
   .dark {
     --background: #050505;
-    --surface: #0a0a0a;
-    --surface-hover: #121212;
+    --secondary-bg: #0a0a0a;
+    --surface: #111111;
+    --surface-hover: #171717;
     --foreground: #f4f4f5;
     --muted: #a1a1aa;
     --muted-foreground: #71717a;
@@ -28,8 +30,8 @@
     --primary: #ffffff;
     --primary-foreground: #050505;
     --accent: #3b82f6;
-    --accent-glow: rgba(59, 130, 246, 0.25);
-    --glass-bg: rgba(10, 10, 10, 0.65);
+    --accent-glow: rgba(59, 130, 246, 0.2);
+    --glass-bg: rgba(10, 10, 10, 0.75);
     --glass-border: rgba(255, 255, 255, 0.08);
   }
 }
@@ -39,9 +41,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+  selection-background-color: #111111;
+  selection-color: #ffffff;
 }
 
-/* Glassmorphism utility classes */
+/* Glassmorphism utility classes - Bright Atelier */
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
@@ -50,72 +54,83 @@ body {
 }
 
 .glass-card {
-  background: rgba(15, 15, 20, 0.6);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 12px 40px 0 rgba(59, 130, 246, 0.15);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 12px 32px 0 rgba(37, 99, 235, 0.08);
   transform: translateY(-2px);
 }
 
-/* Liquid Gradient & Glow Animations */
-@keyframes aurora {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* Bright Ambient Glow Effects */
 .aurora-bg {
   background: linear-gradient(
     -45deg,
-    rgba(59, 130, 246, 0.12),
-    rgba(139, 92, 246, 0.12),
-    rgba(6, 182, 212, 0.12),
-    rgba(236, 72, 153, 0.12)
+    rgba(37, 99, 235, 0.06),
+    rgba(124, 58, 237, 0.06),
+    rgba(6, 182, 212, 0.06),
+    rgba(236, 72, 153, 0.06)
   );
   background-size: 400% 400%;
-  animation: aurora 15s ease infinite;
+  animation: aurora 18s ease infinite;
+}
+
+@keyframes aurora {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  background: linear-gradient(135deg, #111111 0%, #444444 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-accent-gradient {
-  background: linear-gradient(135deg, #60a5fa 0%, #a855f7 50%, #38bdf8 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .glow-box {
-  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 30px -5px rgba(37, 99, 235, 0.15);
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Minimal Light */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #f7f7f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f1f23;
-  border-radius: 4px;
+  background: #d4d4d4;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  background: #111111;
+}
+
+/* Smooth Lenis Scroll setup */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }

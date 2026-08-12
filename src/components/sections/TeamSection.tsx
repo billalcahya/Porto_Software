@@ -13,15 +13,17 @@ interface TeamProps {
 
 export function TeamSection({ teamMembers = [] }: TeamProps) {
   return (
-    <section className="py-24 bg-zinc-950 text-white relative">
+    <section className="py-28 bg-[#F7F7F5] text-zinc-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="glow" className="mb-4 font-mono">WORLD-CLASS TEAM</Badge>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-              Meet Our Senior Software Architects & Engineers
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <Badge variant="outline" className="mb-4 font-mono text-xs uppercase tracking-widest bg-white border-zinc-200 text-zinc-700">
+              WORLD-CLASS TEAM
+            </Badge>
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight uppercase leading-[1.08] text-zinc-950">
+              SENIOR ARCHITECTS & CREATIVE ENGINEERS
             </h2>
-            <p className="mt-4 text-lg text-zinc-400 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-zinc-600 leading-relaxed">
               Veteran software engineers, AI specialists, and UI motion designers passionate about building exceptional software.
             </p>
           </div>
@@ -31,24 +33,24 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {teamMembers.map((member, idx) => (
             <ScrollReveal key={member._id || idx} delay={0.1 * idx}>
-              <div className="glass-card rounded-3xl p-6 bg-zinc-950/80 border-zinc-800/80 hover:border-blue-500/40 text-center flex flex-col justify-between h-full group transition-all duration-300">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-black/8 shadow-xs hover:shadow-xl text-center flex flex-col justify-between h-full group transition-all duration-300">
                 <div>
                   {/* Avatar */}
-                  <div className="relative w-28 h-28 mx-auto rounded-2xl overflow-hidden bg-zinc-800 border-2 border-zinc-800 group-hover:border-blue-500/50 mb-6 transition-all duration-300">
+                  <div className="relative w-32 h-32 mx-auto rounded-2xl overflow-hidden bg-zinc-100 border-2 border-zinc-200 group-hover:border-zinc-950 mb-6 transition-all duration-300 shadow-xs">
                     {member.avatar ? (
-                      <Image src={member.avatar} alt={member.name} fill className="object-cover" />
+                      <Image src={member.avatar} alt={member.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-white bg-indigo-600">
+                      <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-white bg-zinc-950">
                         {member.name.charAt(0)}
                       </div>
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl font-bold uppercase text-zinc-950 group-hover:text-blue-600 transition-colors">
                     {member.name}
                   </h3>
-                  <p className="text-xs font-semibold text-blue-400 mt-1 mb-3">{member.position}</p>
-                  <p className="text-xs text-zinc-400 leading-relaxed line-clamp-3 mb-4">
+                  <p className="text-xs font-mono font-semibold uppercase text-blue-600 tracking-wider mt-1 mb-3">{member.position}</p>
+                  <p className="text-xs text-zinc-600 leading-relaxed line-clamp-3 mb-6">
                     {member.bio}
                   </p>
 
@@ -58,7 +60,7 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
                       {member.skills.map((skill, sIdx) => (
                         <span
                           key={sIdx}
-                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-zinc-300"
+                          className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-[#F7F7F5] border border-zinc-200 text-zinc-700"
                         >
                           {skill}
                         </span>
@@ -68,13 +70,13 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
                 </div>
 
                 {/* Social Links */}
-                <div className="pt-4 border-t border-zinc-900 flex items-center justify-center gap-3">
+                <div className="pt-4 border-t border-zinc-100 flex items-center justify-center gap-3">
                   {member.socialLinks?.github && (
                     <a
                       href={member.socialLinks.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white transition-colors"
+                      className="p-2 rounded-full bg-[#F7F7F5] text-zinc-600 hover:text-zinc-950 hover:bg-zinc-200 transition-colors"
                       aria-label="GitHub"
                     >
                       <GithubIcon className="w-4 h-4" />
@@ -85,7 +87,7 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
                       href={member.socialLinks.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white transition-colors"
+                      className="p-2 rounded-full bg-[#F7F7F5] text-zinc-600 hover:text-zinc-950 hover:bg-zinc-200 transition-colors"
                       aria-label="LinkedIn"
                     >
                       <LinkedinIcon className="w-4 h-4" />
@@ -96,7 +98,7 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
                       href={member.socialLinks.twitter}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 rounded-lg bg-zinc-900 text-zinc-400 hover:text-white transition-colors"
+                      className="p-2 rounded-full bg-[#F7F7F5] text-zinc-600 hover:text-zinc-950 hover:bg-zinc-200 transition-colors"
                       aria-label="Twitter"
                     >
                       <TwitterIcon className="w-4 h-4" />

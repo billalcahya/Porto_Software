@@ -1,515 +1,1167 @@
-SOFTWARE HOUSE LANDING PAGE
-MASTER DEVELOPMENT INSTRUCTION
+# SOFTWARE HOUSE LANDING PAGE
 
-ROLE: Senior Fullstack Engineer, Software Architect, UI/UX Engineer, Motion Designer, Database Engineer, Security Engineer, dan QA Engineer.
+# MASTER DEVELOPMENT INSTRUCTION — BRIGHT CINEMATIC WEBGL EDITION
 
-TASK: Bangun aplikasi Software House Landing Page + Admin CMS secara production-ready menggunakan Next.js fullstack.
+## ROLE
 
-IMPORTANT: Jangan hanya membuat mockup atau dokumentasi. Agent harus langsung mengimplementasikan seluruh aplikasi ke dalam repository berdasarkan spesifikasi di dokumen ini.
+Act as a Senior Fullstack Engineer, Software Architect, UI/UX Engineer, Creative Developer, Motion Designer, WebGL Engineer, Database Engineer, Security Engineer, Performance Engineer, dan QA Engineer.
 
-1. DEVELOPMENT OBJECTIVE
+---
+
+# 1. TASK
+
+Bangun aplikasi **Software House Landing Page + Admin CMS** secara production-ready menggunakan Next.js fullstack.
+
+Jangan hanya membuat mockup, prototype, atau dokumentasi.
+
+Agent harus langsung mengimplementasikan seluruh aplikasi ke repository berdasarkan spesifikasi ini.
+
+Website harus terasa seperti **premium creative technology studio**, bukan template landing page biasa.
+
+---
+
+# 2. DEVELOPMENT OBJECTIVE
 
 Buat website software house yang:
 
-modern
-premium
-cinematic
-immersive
-responsive
-SEO friendly
-fast
-accessible
-maintainable
-scalable
-memiliki animasi yang halus
-memiliki admin dashboard
-seluruh konten landing page dapat dikelola melalui admin
-menggunakan database
-siap production
+* modern
+* premium
+* bright
+* cinematic
+* immersive
+* futuristic
+* editorial
+* interactive
+* responsive
+* SEO friendly
+* fast
+* accessible
+* maintainable
+* scalable
+* production ready
 
-Website harus terasa seperti website perusahaan teknologi profesional, bukan template landing page generik.
+Visual utama harus menggunakan:
 
-2. CORE TECHNOLOGY
+* bright white interface
+* WebGL
+* Three.js
+* GLSL shader
+* GSAP
+* ScrollTrigger
+* smooth scrolling
+* cinematic transitions
+* interactive mouse effects
+* parallax
+* micro-interactions
+* fluid motion
+* subtle particles
+* dynamic lighting
 
-Gunakan:
+Website harus memiliki **strong visual identity**.
 
-Next.js
-App Router
-TypeScript
-React
-Tailwind CSS
-shadcn/ui
-Framer Motion
-GSAP jika diperlukan
-Lucide React
-MongoDB
-Mongoose
-Auth.js / NextAuth
-Zod
-React Hook Form
+Hindari tampilan seperti template SaaS generik.
 
-Gunakan Next.js sebagai fullstack framework.
+---
 
-JANGAN menggunakan
-Express.js
-Laravel
-backend server terpisah
-REST API server terpisah
+# 3. CORE TECHNOLOGY
 
 Gunakan:
 
-Server Components
-Server Actions
-Route Handlers jika memang diperlukan
-Middleware
-Mongoose
-database service
-3. DEVELOPMENT PRINCIPLE
+* Next.js
+* App Router
+* TypeScript
+* React
+* Tailwind CSS
+* shadcn/ui
+* GSAP
+* GSAP ScrollTrigger
+* Three.js
+* React Three Fiber
+* @react-three/drei
+* GLSL shaders
+* Lenis atau smooth scrolling solution yang compatible dengan GSAP
+* Lucide React
+* MongoDB
+* Mongoose
+* Auth.js / NextAuth
+* Zod
+* React Hook Form
 
-Prioritaskan:
+### Animation Stack
 
-Functionality
-Maintainability
-Security
-Performance
-UX
-Visual quality
+Gunakan **GSAP sebagai animation engine utama**.
 
-Jangan membuat implementasi yang hanya terlihat bagus tetapi tidak benar-benar berfungsi.
+Gunakan:
 
-Semua tombol, form, CRUD, authentication, database operation, upload, filtering, pagination, dan navigation harus benar-benar bekerja.
+* GSAP Timeline
+* ScrollTrigger
+* scrub animations
+* stagger animations
+* reveal animations
+* text animations
+* image transitions
+* scale transitions
+* clip-path transitions
+* horizontal scroll sections
+* pinned sections
+* parallax
+* magnetic buttons
+* cursor interactions
 
-4. BEFORE CODING
+### WebGL Stack
 
-Sebelum menulis kode:
+Gunakan Three.js / React Three Fiber untuk visual yang membutuhkan WebGL.
 
-Inspect repository.
-Periksa file yang sudah tersedia.
-Periksa package.json.
-Periksa konfigurasi Next.js.
-Periksa konfigurasi Tailwind.
-Periksa environment variable.
-Identifikasi apakah project sudah memiliki struktur tertentu.
-Jangan menghapus fitur existing yang masih relevan.
-Jika project kosong, setup project dengan struktur yang sesuai spesifikasi ini.
-Buat implementation plan internal.
-Setelah itu langsung mulai implementasi.
+Gunakan GLSL shader untuk:
 
-Jangan berhenti hanya pada planning.
+* animated background
+* liquid distortion
+* gradient field
+* noise
+* fluid movement
+* particles
+* light effects
+* subtle displacement
+* interactive mouse distortion
 
-5. DESIGN DIRECTION
+Jangan menggunakan WebGL hanya sebagai gimmick.
 
-Gunakan visual direction:
+WebGL harus menjadi bagian dari visual identity website.
 
-Theme
+---
 
-Cinematic Liquid Technology
+# 4. IMPORTANT — ARCHITECTURE
 
-Karakter visual:
+Tetap gunakan Next.js sebagai fullstack framework.
 
-dark futuristic
-liquid glass
-glassmorphism
-subtle grain
-aurora gradient
-soft glow
-large typography
-editorial layout
-smooth motion
-sophisticated spacing
-premium technology aesthetic
+JANGAN menggunakan:
 
-Jangan membuat desain seperti:
+* Express.js
+* Laravel
+* backend server terpisah
+* REST API server terpisah
 
-template Bootstrap
-dashboard template biasa
-landing page startup generik
-terlalu banyak card
-terlalu banyak gradient
-terlalu banyak border
-animasi berlebihan
-6. COLOR SYSTEM
+Gunakan:
 
-Default theme:
+* Server Components
+* Server Actions
+* Route Handlers jika diperlukan
+* Middleware
+* Mongoose
+* database service
 
-Background:
-#050505
+Prioritaskan Server Components.
 
-Surface:
-#0A0A0A
+Gunakan `"use client"` hanya ketika memang diperlukan, terutama untuk:
 
-Primary:
-White
+* GSAP
+* Three.js
+* WebGL
+* browser APIs
+* interactive UI
 
-Secondary:
-Muted Gray
+---
 
-Accent:
-Electric / futuristic accent
+# 5. DESIGN DIRECTION
 
-Border:
-rgba(255,255,255,0.08)
+## PRIMARY VISUAL THEME
 
-Gunakan CSS variables agar theme mudah diubah.
+### "Bright Cinematic Digital Atelier"
 
-Support:
+Website harus memiliki nuansa:
 
-Dark Mode
-Light Mode
-7. TYPOGRAPHY
+* clean
+* bright
+* futuristic
+* premium
+* artistic
+* sophisticated
+* minimal
+* editorial
+* immersive
+* technological
 
-Gunakan typography modern.
+Dominant visual:
 
-Prioritas:
+**WHITE / OFF-WHITE / LIGHT GRAY**
 
-Inter
-Geist
-Space Grotesk
+Bukan dark mode sebagai visual utama.
 
-Gunakan typography hierarchy yang kuat.
+---
 
-Hero heading harus besar dan responsive.
+# 6. COLOR SYSTEM
+
+Gunakan light theme sebagai default.
+
+### Primary Background
+
+```text
+#FFFFFF
+```
+
+### Secondary Background
+
+```text
+#F7F7F5
+```
+
+### Surface
+
+```text
+#FAFAFA
+```
+
+### Primary Text
+
+```text
+#111111
+```
+
+### Secondary Text
+
+```text
+#666666
+```
+
+### Muted Text
+
+```text
+#999999
+```
+
+### Border
+
+Gunakan:
+
+```text
+rgba(0,0,0,0.08)
+```
+
+### Accent
+
+Gunakan accent futuristik yang sangat subtle.
+
+Contoh:
+
+* soft electric blue
+* cyan
+* violet
+* silver
+* iridescent gradient
+
+Accent tidak boleh mendominasi halaman.
+
+---
+
+# 7. IMPORTANT VISUAL RULE
+
+Jangan membuat halaman penuh dengan gradient.
+
+Gradient hanya digunakan sebagai:
+
+* shader
+* ambient lighting
+* background glow
+* accent
+* hover effect
+* WebGL visualization
+
+Background utama tetap:
+
+**white / off-white.**
+
+---
+
+# 8. TYPOGRAPHY
+
+Gunakan typography modern:
+
+* Inter
+* Geist
+* Space Grotesk
+
+Gunakan typography hierarchy yang sangat kuat.
+
+Hero heading harus sangat besar.
+
+Gunakan:
+
+* oversized typography
+* variable font weight
+* tight letter spacing
+* editorial composition
+* asymmetrical layout
 
 Contoh struktur:
 
-WE BUILD
+```text
+WE CREATE
+
 DIGITAL
-EXPERIENCES.
+EXPERIENCES
 
-Jangan copy contoh tersebut secara literal jika tidak sesuai branding.
+THAT MOVE
+PEOPLE.
+```
 
-8. LANDING PAGE
+Jangan copy teks tersebut secara literal jika tidak sesuai branding.
 
-Buat halaman:
+---
 
-/
+# 9. HERO SECTION
 
-Dengan section:
+Hero adalah bagian paling penting dari website.
 
-Navbar
-Hero
-Trusted By
-About
-Services
-Selected Works
-Technology
-Process
-Statistics
-Testimonials
-Team
-Pricing
-FAQ
-CTA
-Footer
-
-Semua section harus responsive.
-
-9. NAVBAR
-
-Navbar harus:
-
-sticky
-transparent pada awal scroll
-berubah ketika scroll
-responsive
-mobile menu
-smooth navigation
-
-Menu:
-
-Home
-About
-Services
-Work
-Process
-Blog
-Contact
-
-CTA:
-
-Start a Project
-10. HERO
-
-Hero harus menjadi bagian paling impressive.
+Hero harus terasa seperti opening scene sebuah **high-end technology film**.
 
 Gunakan:
 
-large typography
-animated background
-liquid effect
-subtle particles
-mouse interaction
-parallax
-gradient glow
-scroll indicator
-animated CTA
+* massive typography
+* white background
+* WebGL shader
+* liquid gradient
+* animated particles
+* soft lighting
+* cursor interaction
+* mouse distortion
+* parallax
+* floating elements
+* animated typography
+* GSAP entrance animation
 
-Hero harus tetap performant.
+### HERO BACKGROUND
 
-Jangan menggunakan animation yang membuat mobile device berat.
+Gunakan Three.js / React Three Fiber.
 
-11. ABOUT
+Buat shader background yang:
+
+* sangat halus
+* abstract
+* fluid
+* organic
+* responsive
+* interactive
+
+Visual dapat berupa:
+
+* liquid surface
+* flowing light
+* abstract gradient field
+* procedural noise
+* soft glowing particles
+
+Background jangan terlihat seperti wallpaper stock.
+
+Harus terasa **procedural dan generative**.
+
+---
+
+# 10. HERO WEBGL INTERACTION
+
+Mouse movement harus mempengaruhi shader.
+
+Contoh:
+
+```text
+mouse movement
+      ↓
+shader distortion
+      ↓
+liquid movement
+      ↓
+soft light displacement
+```
+
+Gunakan interpolation agar movement smooth.
+
+Jangan membuat efek terlalu agresif.
+
+---
+
+# 11. HERO GSAP ANIMATION
+
+Saat halaman pertama kali dibuka:
+
+1. page loader
+2. logo reveal
+3. background shader fade-in
+4. hero typography reveal
+5. words animate menggunakan stagger
+6. CTA muncul
+7. decorative elements masuk
+8. scroll indicator muncul
+
+Gunakan GSAP Timeline.
+
+Animasi harus terasa:
+
+* premium
+* cinematic
+* smooth
+* intentional
+
+Hindari animasi yang terlalu cepat.
+
+---
+
+# 12. PAGE INTRO / LOADER
+
+Buat cinematic page loader.
+
+Konsep:
+
+```text
+WHITE SCREEN
+      ↓
+minimal logo
+      ↓
+progress / animated line
+      ↓
+shader reveal
+      ↓
+hero reveal
+```
+
+Loader jangan terlalu lama.
+
+Target sekitar:
+
+**0.8–1.5 detik**
+
+Jika asset sudah siap lebih cepat, skip loader secara adaptif.
+
+Jangan membuat user menunggu tanpa alasan.
+
+---
+
+# 13. CUSTOM CURSOR
+
+Desktop dapat menggunakan custom cursor.
+
+Cursor memiliki:
+
+* small dot
+* magnetic interaction
+* hover expansion
+* text label
+
+Contoh:
+
+```text
+VIEW
+```
+
+atau:
+
+```text
+EXPLORE
+```
+
+Saat hover portfolio:
+
+```text
+VIEW PROJECT
+```
+
+Saat hover CTA:
+
+```text
+LET'S TALK
+```
+
+Disable custom cursor pada:
+
+* mobile
+* tablet jika diperlukan
+* touch device
+
+---
+
+# 14. MAGNETIC BUTTON
+
+CTA harus memiliki magnetic interaction.
+
+Ketika mouse mendekati button:
+
+```text
+cursor
+   ↓
+button sedikit tertarik
+```
+
+Gunakan GSAP.
+
+Movement harus subtle.
+
+Jangan membuat button bergerak terlalu jauh.
+
+---
+
+# 15. NAVBAR
+
+Navbar:
+
+* transparent pada awal
+* floating
+* sticky
+* berubah ketika scroll
+* white / glass surface
+* subtle backdrop blur
+* smooth transition
+
+Ketika scroll:
+
+```text
+transparent
+     ↓
+white glass navigation
+```
+
+Menu:
+
+* Home
+* About
+* Services
+* Work
+* Process
+* Blog
+* Contact
+
+CTA:
+
+**Start a Project**
+
+Navbar entrance menggunakan GSAP.
+
+---
+
+# 16. SCROLL EXPERIENCE
+
+Scrolling harus terasa seperti sebuah **cinematic journey**.
+
+Gunakan:
+
+* GSAP ScrollTrigger
+* smooth scrolling
+* parallax
+* pinned sections
+* reveal animation
+* horizontal scrolling
+* scale transitions
+* opacity transitions
+* image masking
+
+Jangan membuat setiap elemen bergerak.
+
+Gunakan motion hierarchy.
+
+---
+
+# 17. SECTION TRANSITIONS
+
+Setiap section harus memiliki transition yang halus.
+
+Contoh:
+
+```text
+Section A
+    ↓
+fade
+    ↓
+scale
+    ↓
+clip-path
+    ↓
+Section B
+```
+
+Gunakan:
+
+* clip-path
+* transform
+* opacity
+* blur
+* scale
+* WebGL transitions
+
+---
+
+# 18. ABOUT SECTION
+
+About section harus terasa editorial.
+
+Gunakan layout:
+
+```text
+ABOUT US
+
+large statement
+        +
+supporting description
+        +
+statistics
+```
+
+Gunakan oversized typography.
+
+Tambahkan subtle scroll animation.
 
 Data berasal dari database.
 
 Admin dapat mengubah:
 
-title
-description
-vision
-mission
-values
-company statistics
-12. SERVICES
+* title
+* description
+* vision
+* mission
+* values
+* company statistics
 
-Service harus berasal dari database.
+---
 
-Model:
+# 19. SERVICES SECTION
 
-Service
-├── title
-├── slug
-├── description
-├── icon
-├── image
-├── features[]
-├── order
-├── featured
-├── published
-├── createdAt
-└── updatedAt
+Services berasal dari database.
 
-Admin dapat:
+Jangan membuat grid card biasa.
 
-create
-read
-update
-delete
-reorder
-publish/unpublish
-13. PORTFOLIO
-
-Portfolio merupakan bagian utama website.
-
-Model:
-
-Portfolio
-├── title
-├── slug
-├── client
-├── category
-├── description
-├── thumbnail
-├── gallery[]
-├── technologies[]
-├── projectUrl
-├── githubUrl
-├── year
-├── featured
-├── published
-├── order
-├── createdAt
-└── updatedAt
-
-Landing page menampilkan featured portfolio.
-
-Buat:
-
-/portfolio
-/portfolio/[slug]
-
-Portfolio detail harus cinematic.
-
-14. TECHNOLOGY
-
-Technology berasal dari database.
+Gunakan **interactive editorial layout**.
 
 Contoh:
 
-Next.js
-React
-TypeScript
-Node.js
-Laravel
-Flutter
-MongoDB
-PostgreSQL
-Docker
-AWS
+```text
+01  WEB DEVELOPMENT
+02  MOBILE DEVELOPMENT
+03  UI/UX DESIGN
+04  SOFTWARE ENGINEERING
+05  DIGITAL PRODUCT
+```
 
-Admin dapat mengelola:
+Saat hover:
 
-name
-icon
-category
-website
-order
-published
-15. PROCESS
+* typography berubah
+* background berubah
+* image preview muncul
+* cursor berubah
+* subtle shader effect muncul
 
-Buat workflow:
+Gunakan GSAP untuk interaction.
 
-Discovery
-    ↓
-Strategy
-    ↓
-Design
-    ↓
-Development
-    ↓
-Testing
-    ↓
-Deployment
-    ↓
-Maintenance
+---
 
-Data dapat dikelola melalui CMS.
+# 20. PORTFOLIO / SELECTED WORK
 
-16. TESTIMONIAL
+Portfolio adalah salah satu bagian paling cinematic.
 
-Model:
+Jangan membuat:
 
-Testimonial
-├── name
-├── position
-├── company
-├── avatar
-├── message
-├── rating
-├── featured
-├── published
-├── order
-├── createdAt
-└── updatedAt
-17. TEAM
+```text
+card
+card
+card
+card
+```
 
-Model:
+Gunakan:
 
-TeamMember
-├── name
-├── position
-├── bio
-├── avatar
-├── skills[]
-├── socialLinks
-├── order
-├── published
-├── createdAt
-└── updatedAt
-18. PRICING
+### Horizontal storytelling
 
-Pricing harus dinamis.
+Contoh:
 
-Model:
+```text
+SELECTED
 
-PricingPlan
-├── name
-├── description
-├── price
-├── billing
-├── features[]
-├── highlighted
-├── cta
-├── order
-├── published
-├── createdAt
-└── updatedAt
-19. BLOG
+WORK
+
+PROJECT 01
+      ↓
+PROJECT 02
+      ↓
+PROJECT 03
+```
+
+Gunakan:
+
+* horizontal scroll
+* pinned section
+* image scale
+* clip-path
+* parallax
+* typography reveal
+
+Portfolio image dapat:
+
+* scale
+* rotate sangat sedikit
+* distort
+* reveal menggunakan mask
+
+---
+
+# 21. PORTFOLIO DETAIL
 
 Buat:
 
+```text
+/portfolio
+/portfolio/[slug]
+```
+
+Portfolio detail harus terasa seperti **case study cinematic**.
+
+Gunakan:
+
+* huge hero image
+* project metadata
+* typography
+* animated gallery
+* technology list
+* project story
+* result
+* CTA
+
+Image transitions menggunakan GSAP.
+
+---
+
+# 22. TECHNOLOGY SECTION
+
+Jangan hanya membuat logo grid.
+
+Gunakan interactive technology wall.
+
+Contoh:
+
+```text
+NEXT.JS
+REACT
+TYPESCRIPT
+NODE
+MONGODB
+POSTGRESQL
+DOCKER
+AWS
+FLUTTER
+```
+
+Technology dapat:
+
+* float
+* move
+* reveal
+* respond to mouse
+
+Tetap jaga readability.
+
+---
+
+# 23. PROCESS SECTION
+
+Workflow:
+
+```text
+Discovery
+   ↓
+Strategy
+   ↓
+Design
+   ↓
+Development
+   ↓
+Testing
+   ↓
+Deployment
+   ↓
+Maintenance
+```
+
+Buat process sebagai visual timeline.
+
+Gunakan ScrollTrigger.
+
+Saat user scroll:
+
+```text
+step aktif
+   ↓
+line progress
+   ↓
+content reveal
+```
+
+Gunakan GSAP scrub.
+
+---
+
+# 24. STATISTICS
+
+Statistics harus memiliki count-up animation.
+
+Contoh:
+
+```text
+50+
+Projects
+
+20+
+Clients
+
+5+
+Years
+
+99%
+Commitment
+```
+
+Counter berjalan ketika masuk viewport.
+
+Gunakan GSAP.
+
+---
+
+# 25. TESTIMONIAL
+
+Buat testimonial yang minimal.
+
+Jangan membuat card grid berlebihan.
+
+Gunakan:
+
+* large quote
+* client name
+* position
+* subtle image
+* horizontal transition
+
+Quote muncul menggunakan text reveal.
+
+---
+
+# 26. TEAM
+
+Team section gunakan editorial layout.
+
+Saat hover member:
+
+* image reveal
+* image scale
+* text transition
+* social links muncul
+
+Gunakan GSAP.
+
+---
+
+# 27. PRICING
+
+Pricing harus tetap clean.
+
+Gunakan:
+
+* white surface
+* subtle border
+* large typography
+* minimal shadow
+
+Jangan menggunakan dashboard-style pricing cards.
+
+Pricing tetap berasal dari database.
+
+---
+
+# 28. BLOG
+
+Buat:
+
+```text
 /blog
 /blog/[slug]
+```
 
-Model:
+Blog list harus editorial.
 
-BlogPost
-├── title
-├── slug
-├── excerpt
-├── content
-├── thumbnail
-├── category
-├── tags[]
-├── author
-├── status
-├── publishedAt
-├── seo
-├── createdAt
-└── updatedAt
+Gunakan:
 
-Status:
+* large featured article
+* asymmetric grid
+* image reveal
+* category
+* metadata
 
-DRAFT
-PUBLISHED
-ARCHIVED
+Scroll animation menggunakan GSAP.
 
-Blog harus memiliki:
+---
 
-search
-category
-tags
-pagination
-related posts
-20. FAQ
+# 29. FAQ
 
-Model:
+Gunakan accordion minimal.
 
-FAQ
-├── question
-├── answer
-├── category
-├── order
-├── published
-├── createdAt
-└── updatedAt
+Saat membuka FAQ:
 
-Gunakan accordion.
+* height animation
+* opacity
+* icon rotation
 
-21. CONTACT
+Gunakan GSAP atau CSS transition.
 
-Buat contact form:
+---
 
-Name
-Email
-Company
-Phone
-Service
-Budget
-Message
+# 30. CONTACT / CTA
 
-Data disimpan ke MongoDB.
+CTA harus menjadi salah satu bagian paling memorable.
 
-Model:
+Konsep:
 
-ContactMessage
-├── name
-├── email
-├── company
-├── phone
-├── service
-├── budget
-├── message
-├── status
-├── createdAt
-└── updatedAt
+```text
+LET'S BUILD
 
-Status:
+SOMETHING
+EXTRAORDINARY.
+```
 
-NEW
-READ
-REPLIED
-ARCHIVED
-22. ADMIN CMS
+Background tetap bright.
 
-Buat route:
+Gunakan WebGL shader sebagai ambient visual.
 
+Ketika cursor bergerak:
+
+* shader berubah
+* light mengikuti mouse
+* typography sedikit bergerak
+
+CTA button menggunakan magnetic effect.
+
+---
+
+# 31. FOOTER
+
+Footer minimal dan elegant.
+
+Gunakan:
+
+* company identity
+* navigation
+* social links
+* email
+* location
+* copyright
+
+Tambahkan subtle entrance animation.
+
+---
+
+# 32. GSAP ANIMATION SYSTEM
+
+Buat animation architecture terpisah.
+
+Contoh:
+
+```text
+components/
+└── animations/
+    ├── FadeIn.tsx
+    ├── TextReveal.tsx
+    ├── Parallax.tsx
+    ├── MagneticButton.tsx
+    ├── ScrollReveal.tsx
+    ├── ImageReveal.tsx
+    ├── HorizontalScroll.tsx
+    └── PageTransition.tsx
+```
+
+Buat reusable GSAP utilities.
+
+Contoh:
+
+```text
+lib/
+└── animations/
+    ├── gsap.ts
+    ├── easing.ts
+    ├── transitions.ts
+    └── scroll.ts
+```
+
+Jangan menulis animation logic berulang-ulang.
+
+---
+
+# 33. THREE.JS / WEBGL ARCHITECTURE
+
+Pisahkan WebGL components.
+
+Contoh:
+
+```text
+components/
+└── webgl/
+    ├── ShaderBackground.tsx
+    ├── LiquidShader.tsx
+    ├── ParticleField.tsx
+    ├── GradientMesh.tsx
+    ├── CursorLight.tsx
+    └── WebGLCanvas.tsx
+```
+
+Shader:
+
+```text
+shaders/
+├── liquid.vert
+├── liquid.frag
+├── noise.glsl
+├── distortion.glsl
+└── gradient.glsl
+```
+
+Gunakan reusable shader utilities.
+
+---
+
+# 34. WEBGL PERFORMANCE
+
+WebGL wajib performant.
+
+Implement:
+
+* device pixel ratio limit
+* adaptive quality
+* resize handling
+* visibility detection
+* lazy initialization
+* cleanup
+* dispose geometries
+* dispose materials
+* dispose textures
+* reduce particle count on mobile
+
+Desktop:
+
+High quality.
+
+Mobile:
+
+Reduced quality.
+
+Very low-end devices:
+
+Fallback ke CSS gradient / static background.
+
+Jangan memaksa WebGL berjalan dengan kualitas tinggi di semua device.
+
+---
+
+# 35. REDUCED MOTION
+
+Jika user menggunakan:
+
+```text
+prefers-reduced-motion
+```
+
+Maka:
+
+* disable unnecessary animations
+* disable parallax
+* reduce GSAP transitions
+* disable custom cursor
+* simplify WebGL
+* gunakan static fallback
+
+Accessibility lebih penting daripada visual effect.
+
+---
+
+# 36. MOTION PRINCIPLES
+
+Gunakan prinsip:
+
+### 1. Motion hierarchy
+
+Tidak semua elemen bergerak.
+
+### 2. Slow + smooth
+
+Gunakan easing premium.
+
+### 3. Spatial consistency
+
+Movement harus memiliki arah yang jelas.
+
+### 4. Purposeful animation
+
+Animasi harus membantu storytelling.
+
+### 5. Responsive motion
+
+Desktop dan mobile memiliki behavior berbeda.
+
+---
+
+# 37. AVOID
+
+Jangan gunakan:
+
+* dark futuristic default
+* black background sebagai dominan
+* excessive neon
+* excessive glow
+* excessive glassmorphism
+* excessive cards
+* excessive gradients
+* generic SaaS layout
+* Bootstrap-style layout
+* random floating objects
+* excessive particle effects
+* animation pada setiap elemen
+* WebGL yang berat
+* animation yang membuat user pusing
+
+---
+
+# 38. VISUAL QUALITY TARGET
+
+Bayangkan kualitas visual seperti:
+
+**premium creative technology agency**
+
+bukan:
+
+**generic software company website**
+
+Website harus terasa:
+
+```text
+Apple
++
+Awwwards
++
+creative coding studio
++
+premium digital agency
+```
+
+Tetapi jangan meniru website tertentu secara literal.
+
+Buat identitas visual original.
+
+---
+
+# 39. ADMIN CMS
+
+Pertahankan seluruh requirement CMS yang ada.
+
+Admin route:
+
+```text
 /admin
+```
 
 Dashboard harus benar-benar berfungsi.
 
 Menu:
 
+```text
 Dashboard
 
 Content
@@ -538,69 +1190,20 @@ Settings
 System
 ├── Users
 └── Activity Logs
-23. ADMIN DASHBOARD
+```
 
-Dashboard menampilkan:
+---
 
-total portfolio
-total blog
-total services
-total messages
-published content
-draft content
-recent messages
-recent activity
+# 40. DATABASE
 
-Tambahkan chart jika memang berguna.
+Gunakan:
 
-Jangan membuat dashboard terlalu ramai.
+* MongoDB
+* Mongoose
 
-24. AUTHENTICATION
+Models:
 
-Gunakan Auth.js / NextAuth.
-
-Implement:
-
-Login
-Logout
-Session
-Protected Routes
-Role Based Access
-
-Role:
-
-SUPER_ADMIN
-ADMIN
-EDITOR
-
-Permission harus berbeda berdasarkan role.
-
-25. SECURITY
-
-Implementasikan:
-
-password hashing
-secure session
-protected admin routes
-authorization
-input validation
-Zod validation
-sanitized content
-rate limiting untuk form penting
-secure cookies
-environment variables
-prevent unauthorized mutations
-prevent injection
-prevent XSS
-
-Jangan pernah menyimpan password plaintext.
-
-26. DATABASE
-
-Gunakan MongoDB + Mongoose.
-
-Buat model terpisah:
-
+```text
 User
 Service
 Portfolio
@@ -615,670 +1218,561 @@ ContactMessage
 SiteSettings
 Media
 ActivityLog
+```
 
-Gunakan index untuk field yang sering digunakan:
+Semua konten yang dapat dikelola admin harus berasal dari database.
 
-slug
-email
-status
-published
-createdAt
+Jangan mengganti database dengan hardcoded array.
 
-Hindari query database yang tidak perlu.
+---
 
-27. SERVER ACTIONS
+# 41. AUTHENTICATION
 
-Gunakan Server Actions untuk mutation.
+Gunakan:
 
-Contoh:
+* Auth.js / NextAuth
+* secure session
+* protected routes
+* role based access
 
-createPortfolio()
-updatePortfolio()
-deletePortfolio()
+Role:
 
-createService()
-updateService()
-deleteService()
+```text
+SUPER_ADMIN
+ADMIN
+EDITOR
+```
 
-createBlog()
-updateBlog()
-deleteBlog()
+Permission harus berbeda berdasarkan role.
 
-updateSiteSettings()
+---
 
-Setiap Server Action harus:
+# 42. SECURITY
 
-Authenticate user
-Check permission
-Validate input
-Execute mutation
-Handle error
-Revalidate cache
-Return safe response
-28. ADMIN CRUD
+Implementasikan:
 
-Setiap CRUD harus memiliki:
+* password hashing
+* secure session
+* protected admin routes
+* authorization
+* Zod validation
+* sanitized content
+* rate limiting
+* secure cookies
+* environment variables
+* XSS prevention
+* injection prevention
 
-loading state
-error state
-empty state
-confirmation dialog
-validation
-toast
-pagination
-search
-filter
+Jangan menyimpan password plaintext.
 
-Jangan hanya membuat UI CRUD tanpa backend implementation.
+---
 
-29. MEDIA LIBRARY
-
-Admin dapat:
-
-upload image
-preview image
-delete image
-copy URL
-select image
-reuse image
-
-Gunakan storage service yang sesuai.
-
-Jangan menyimpan file binary besar langsung di MongoDB.
-
-Gunakan environment variable untuk storage credentials.
-
-30. SEO
+# 43. SEO
 
 Implement:
 
-metadata
-dynamic metadata
-OpenGraph
-Twitter Cards
-sitemap
-robots.txt
-canonical URL
-JSON-LD
-structured data
+* metadata
+* dynamic metadata
+* OpenGraph
+* Twitter Cards
+* sitemap
+* robots.txt
+* canonical URL
+* JSON-LD
+* structured data
 
 Portfolio dan Blog harus memiliki dynamic metadata.
 
-31. PERFORMANCE
+---
+
+# 44. PERFORMANCE
 
 Prioritaskan:
 
-Server Components
-image optimization
-lazy loading
-dynamic import
-caching
-revalidation
-minimal client JavaScript
-code splitting
+* Server Components
+* image optimization
+* lazy loading
+* dynamic imports
+* caching
+* revalidation
+* code splitting
+* minimal client JS
 
-Animasi berat harus hanya dijalankan pada bagian yang diperlukan.
+### IMPORTANT
 
-32. ACCESSIBILITY
+GSAP dan Three.js harus di-load hanya pada bagian yang membutuhkan.
 
-Implement:
+Jangan membuat seluruh website menjadi Client Component hanya karena animation.
 
-semantic HTML
-keyboard navigation
-aria labels
-focus states
-sufficient contrast
-accessible forms
-reduced motion support
+---
 
-Jika user mengaktifkan:
-
-prefers-reduced-motion
-
-kurangi atau matikan animasi yang tidak penting.
-
-33. RESPONSIVE
+# 45. RESPONSIVE
 
 Wajib support:
 
-Mobile
-Tablet
-Laptop
-Desktop
-Large Desktop
+* mobile
+* tablet
+* laptop
+* desktop
+* large desktop
 
-Pastikan:
+Perhatikan:
 
-navbar
-typography
-grid
-animation
-dashboard
-forms
-tables
+* typography
+* WebGL
+* navigation
+* animation
+* layout
+* spacing
+* touch interaction
 
-semuanya usable pada mobile.
+Mobile bukan sekadar desktop yang diperkecil.
 
-34. COMPONENT ARCHITECTURE
+Buat responsive experience secara intentional.
 
-Buat reusable components.
+---
 
-Contoh:
+# 46. COMPONENT ARCHITECTURE
 
+Gunakan reusable components.
+
+Target:
+
+```text
 components/
 ├── ui/
 ├── layout/
 ├── navbar/
 ├── footer/
-├── hero/
 ├── sections/
+├── animations/
+├── webgl/
 ├── portfolio/
 ├── blog/
 ├── forms/
-├── animations/
 └── admin/
+```
 
-Jangan membuat satu file component berisi ribuan baris.
+Jangan membuat satu file berisi ribuan baris.
 
-35. FOLDER STRUCTURE
+---
 
-Target struktur:
+# 47. EXISTING FUNCTIONAL REQUIREMENTS
 
-src/
-├── app/
-│   ├── (marketing)/
-│   ├── admin/
-│   ├── api/
-│   ├── blog/
-│   ├── portfolio/
-│   ├── login/
-│   ├── layout.tsx
-│   └── globals.css
-│
-├── components/
-│   ├── ui/
-│   ├── layout/
-│   ├── sections/
-│   ├── animations/
-│   └── admin/
-│
-├── actions/
-│
-├── features/
-│   ├── portfolio/
-│   ├── services/
-│   ├── blog/
-│   ├── testimonials/
-│   └── contact/
-│
-├── models/
-│
-├── services/
-│
-├── lib/
-│
-├── hooks/
-│
-├── types/
-│
-├── utils/
-│
-└── config/
+Pertahankan seluruh functionality dari requirement awal:
 
-Sesuaikan jika ada alasan teknis yang lebih baik.
+* About CMS
+* Services CRUD
+* Portfolio CRUD
+* Technology CRUD
+* Process CMS
+* Testimonials CRUD
+* Team CRUD
+* Pricing CRUD
+* Blog CRUD
+* FAQ CRUD
+* Contact messages
+* Media Library
+* Admin Dashboard
+* Authentication
+* Role permissions
+* Activity Logs
+* SEO management
+* Site settings
 
-36. ERROR HANDLING
+Semua harus benar-benar bekerja.
 
-Buat:
+---
 
-loading.tsx
-error.tsx
-not-found.tsx
+# 48. BEFORE CODING
 
-untuk route yang relevan.
+Sebelum menulis kode:
 
-Error harus user-friendly.
+1. Inspect repository.
+2. Inspect package.json.
+3. Inspect Next.js configuration.
+4. Inspect Tailwind configuration.
+5. Inspect existing components.
+6. Inspect environment variables.
+7. Identify existing architecture.
+8. Jangan menghapus fitur existing yang masih relevan.
+9. Buat implementation plan internal.
+10. Langsung implementasikan.
 
-Jangan menampilkan stack trace atau informasi sensitif kepada user.
+Jangan berhenti hanya pada planning.
 
-37. SEED DATA
+---
 
-Buat seed script untuk data awal.
+# 49. IMPLEMENTATION ORDER
 
-Minimal:
+## Phase 1 — Foundation
 
-1 admin
-5 services
-6 technologies
-4 portfolio
-3 testimonials
-4 team members
-3 pricing plans
-6 FAQ
-4 blog posts
+Setup:
 
-Gunakan dummy data profesional.
+* Next.js
+* TypeScript
+* Tailwind
+* shadcn
+* MongoDB
+* Mongoose
+* Auth
+* architecture
 
-Jangan menggunakan lorem ipsum jika bisa menggunakan konten realistis.
-
-38. ENVIRONMENT VARIABLES
-
-Buat:
-
-.env.example
-
-Minimal:
-
-DATABASE_URL=
-
-AUTH_SECRET=
-
-NEXT_PUBLIC_APP_URL=
-
-UPLOADTHING_TOKEN=
-
-CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-
-Gunakan hanya provider storage yang benar-benar dipilih dalam implementation.
-
-Jangan commit .env.
-
-39. ADMIN UX
-
-Admin harus terasa seperti CMS profesional.
-
-Gunakan:
-
-sidebar
-topbar
-breadcrumb
-command/search
-modal
-drawer
-tabs
-data table
-form
-toast
-confirmation dialog
-
-Gunakan shadcn/ui.
-
-40. CONTENT EDITOR
-
-Untuk Blog gunakan rich text editor.
-
-Editor harus mendukung:
-
-heading
-paragraph
-bold
-italic
-link
-image
-list
-quote
-code block
-
-Content harus disimpan dalam format yang aman dan mudah dirender.
-
-41. ACTIVITY LOG
-
-Catat aktivitas admin.
-
-Contoh:
-
-ADMIN_CREATED_PORTFOLIO
-ADMIN_UPDATED_PORTFOLIO
-ADMIN_DELETED_PORTFOLIO
-ADMIN_PUBLISHED_BLOG
-ADMIN_LOGIN
-ADMIN_LOGOUT
-
-Simpan:
-
-user
-action
-entity
-entityId
-metadata
-timestamp
-42. QUALITY REQUIREMENT
-
-Kode harus:
-
-TypeScript strict
-readable
-modular
-reusable
-secure
-production ready
-
-Hindari:
-
-any
-
-kecuali benar-benar diperlukan.
-
-Jangan meninggalkan:
-
-TODO
-FIXME
-coming soon
-not implemented
-
-untuk fitur yang seharusnya sudah selesai.
-
-43. TESTING
-
-Minimal lakukan:
-
-Type Check
-npm run typecheck
-Lint
-npm run lint
-Build
-npm run build
-
-Jika project menggunakan test framework, buat test untuk:
-
-authentication
-authorization
-validation
-CRUD
-critical Server Actions
-44. FINAL VALIDATION
-
-Sebelum menyatakan selesai, lakukan pemeriksaan:
-
-Public Website
-
-Navbar bekerja
-
-Hero bekerja
-
-Semua section tampil
-
-Portfolio bekerja
-
-Blog bekerja
-
-Contact form bekerja
-
-Responsive
-
-SEO tersedia
-
-Dark/light mode bekerja
-
-Admin
-
-Login bekerja
-
-Logout bekerja
-
-Protected route bekerja
-
-Role permission bekerja
-
-Dashboard bekerja
-
-Semua CRUD bekerja
-
-Upload bekerja
-
-Search bekerja
-
-Filter bekerja
-
-Pagination bekerja
-
-Activity log bekerja
-
-Technical
-
-TypeScript tidak error
-
-Lint tidak error
-
-Build berhasil
-
-Tidak ada broken import
-
-Tidak ada console error
-
-Tidak ada secret di repository
-
-Tidak ada mock API yang menggantikan database production
-
-Tidak ada fitur utama yang hanya berupa UI dummy
-
-45. IMPLEMENTATION ORDER
-
-Kerjakan secara bertahap:
-
-Phase 1 — Foundation
-Setup dependencies
-Configure Next.js
-Configure Tailwind
-Configure shadcn
-Configure MongoDB
-Configure Mongoose
-Configure authentication
-Configure environment
-Create architecture
-Phase 2 — Database
+## Phase 2 — Database
 
 Implement:
 
-models
-schemas
-validation
-indexes
-seed
-Phase 3 — Authentication
+* models
+* schemas
+* validation
+* indexes
+* seed
+
+## Phase 3 — Authentication
 
 Implement:
 
-login
-logout
-session
-middleware
-roles
-permissions
-Phase 4 — Admin CMS
+* login
+* logout
+* session
+* middleware
+* roles
+* permissions
+
+## Phase 4 — Admin CMS
 
 Implement seluruh CRUD.
 
-Phase 5 — Public Website
+## Phase 5 — Public Website
 
 Implement seluruh landing page.
 
-Phase 6 — Animation
+## Phase 6 — Visual System
 
 Implement:
 
-page transitions
-scroll animation
-hover interaction
-parallax
-liquid effects
-Phase 7 — SEO
+* typography
+* white theme
+* spacing
+* responsive layout
+* design tokens
 
-Implement seluruh SEO.
+## Phase 7 — GSAP
 
-Phase 8 — Performance
+Implement:
+
+* page intro
+* text reveal
+* scroll reveal
+* parallax
+* magnetic buttons
+* image reveal
+* horizontal scrolling
+* page transitions
+* micro-interactions
+
+## Phase 8 — WebGL
+
+Implement:
+
+* shader background
+* liquid distortion
+* particle field
+* mouse interaction
+* WebGL transitions
+
+## Phase 9 — Optimization
 
 Optimize:
 
-images
-rendering
-caching
-bundle
-Phase 9 — QA
+* WebGL
+* GSAP
+* images
+* bundle
+* rendering
+* mobile experience
 
-Test seluruh application flow.
+## Phase 10 — SEO
 
-Phase 10 — Production
+Implement seluruh SEO.
 
-Pastikan:
+## Phase 11 — QA
 
+Test seluruh application.
+
+## Phase 12 — Production
+
+Run:
+
+```bash
+npm run typecheck
+npm run lint
 npm run build
+```
 
-berhasil.
+Semua harus berhasil.
 
-46. IMPORTANT AGENT RULES
-RULE 1
+---
+
+# 50. FINAL QUALITY CHECK
+
+Sebelum menyatakan selesai:
+
+### Visual
+
+* White theme dominan
+* Premium
+* Cinematic
+* Original
+* Responsive
+* Consistent typography
+* Good spacing
+* No generic template feeling
+
+### Animation
+
+* GSAP berjalan
+* ScrollTrigger berjalan
+* text reveal bekerja
+* parallax bekerja
+* magnetic buttons bekerja
+* page transition bekerja
+* hover interaction bekerja
+
+### WebGL
+
+* shader berjalan
+* mouse interaction bekerja
+* responsive
+* mobile fallback
+* reduced motion support
+* tidak memory leak
+* tidak menyebabkan browser crash
+
+### Public Website
+
+* Navbar bekerja
+* Hero bekerja
+* About bekerja
+* Services bekerja
+* Portfolio bekerja
+* Technology bekerja
+* Process bekerja
+* Statistics bekerja
+* Testimonials bekerja
+* Team bekerja
+* Pricing bekerja
+* Blog bekerja
+* FAQ bekerja
+* Contact bekerja
+* Footer bekerja
+
+### Admin
+
+* Login
+* Logout
+* Protected route
+* Role permission
+* Dashboard
+* CRUD
+* Search
+* Filter
+* Pagination
+* Upload
+* Activity log
+
+### Technical
+
+* TypeScript tidak error
+* Lint tidak error
+* Build berhasil
+* Tidak ada broken import
+* Tidak ada console error
+* Tidak ada secret di repository
+* Tidak ada mock API production
+* Tidak ada dummy UI untuk fitur utama
+
+---
+
+# 51. IMPORTANT AGENT RULES
+
+## RULE 1
 
 DO NOT ONLY EXPLAIN.
 
 Implement the application.
 
-RULE 2
+## RULE 2
 
 Jika menemukan bug, perbaiki langsung.
 
 Jangan hanya menjelaskan penyebabnya.
 
-RULE 3
+## RULE 3
 
 Jika dependency diperlukan, install dependency tersebut.
 
-Jangan mengganti requirement hanya karena dependency belum tersedia.
+## RULE 4
 
-RULE 4
+Jika keputusan teknis tidak ditentukan, pilih solusi yang paling:
 
-Jika terdapat keputusan teknis yang tidak ditentukan, pilih solusi yang paling:
+* maintainable
+* secure
+* scalable
+* performant
+* idiomatic Next.js
 
-maintainable
-secure
-scalable
-idiomatic Next.js
-RULE 5
+## RULE 5
 
-Jangan membuat REST API terpisah.
+GSAP adalah animation engine utama.
 
-Gunakan:
+Jangan mencampur terlalu banyak animation library.
 
-Server Actions
-Route Handlers
-Server Components
+## RULE 6
 
-sesuai kebutuhan.
+Three.js digunakan untuk WebGL experience.
 
-RULE 6
+Jangan menggunakan WebGL untuk elemen yang bisa dibuat dengan CSS.
 
-Jangan membuat data statis untuk menggantikan database pada fitur CMS.
+## RULE 7
 
-Contoh yang SALAH:
+Jangan menggunakan dark background sebagai default.
 
-const portfolios = [...]
+Dominant theme harus:
 
-untuk data yang seharusnya berasal dari MongoDB.
+**WHITE / OFF-WHITE / LIGHT GRAY**
 
-Gunakan database.
+## RULE 8
 
-RULE 7
+Landing page harus membaca content dari database untuk content yang dikelola CMS.
 
-Landing page harus membaca data dari CMS/database untuk content yang memang dikelola admin.
-
-RULE 8
+## RULE 9
 
 Admin tidak boleh dapat diakses tanpa authentication.
 
-RULE 9
+## RULE 10
 
 Jangan expose database credentials atau secret ke client.
 
-RULE 10
+## RULE 11
 
-Prioritaskan Server Components.
+Performance harus menjadi prioritas.
 
-Gunakan "use client" hanya jika memang diperlukan.
+Visual yang bagus tetapi membuat website lag dianggap sebagai implementasi yang gagal.
 
-47. DEFINITION OF DONE
+---
 
-Project dianggap selesai jika:
+# 52. DEFINITION OF DONE
 
+User flow:
+
+```text
 User
-  ↓
+ ↓
 Landing Page
-  ↓
+ ↓
 Browse Services
-  ↓
+ ↓
 Browse Portfolio
-  ↓
+ ↓
 Read Blog
-  ↓
+ ↓
 Submit Contact
+```
 
-dan:
+Admin flow:
 
+```text
 Admin
-  ↓
+ ↓
 Login
-  ↓
+ ↓
 Dashboard
-  ↓
+ ↓
 Create/Edit/Delete Content
-  ↓
+ ↓
 Database
-  ↓
+ ↓
 Landing Page Automatically Updated
+```
 
-berjalan dengan baik.
+Seluruh flow harus berjalan.
 
-48. FINAL OUTPUT FROM AGENT
+---
 
-Setelah implementasi selesai, berikan ringkasan:
+# 53. FINAL OUTPUT FROM AGENT
+
+Setelah implementasi selesai, berikan:
 
 ## Implementation Summary
 
 ### Completed
-- ...
+
+* ...
 
 ### Architecture
-- ...
+
+* ...
 
 ### Database
-- ...
+
+* ...
 
 ### Authentication
-- ...
+
+* ...
 
 ### Admin CMS
-- ...
+
+* ...
 
 ### Public Website
-- ...
+
+* ...
+
+### Animation System
+
+* ...
+
+### WebGL / Three.js
+
+* ...
 
 ### Security
-- ...
+
+* ...
 
 ### SEO
-- ...
+
+* ...
 
 ### Performance
-- ...
+
+* ...
 
 ### Testing
-- ...
+
+* ...
 
 ### Commands
-- npm run dev
-- npm run build
-- npm run lint
-- npm run typecheck
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run typecheck
+```
 
 ### Environment Variables
-- ...
+
+* ...
 
 ### Remaining Issues
-- ...
 
-Jika tidak ada issue:
+Jika tidak ada:
 
+```text
 Remaining Issues: None
+```
 
 Jangan menyatakan project selesai jika build masih gagal atau fitur utama belum berfungsi.
