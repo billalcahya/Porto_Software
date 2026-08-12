@@ -44,23 +44,23 @@ export function TechnologySection({ technologies = [] }: TechProps) {
         </ScrollReveal>
 
         {/* Tech Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-6">
           {technologies.map((tech, idx) => (
             <ScrollReveal key={tech._id || idx} delay={0.05 * idx}>
               <a
                 href={tech.website || "#"}
                 target="_blank"
                 rel="noreferrer"
-                className="glass-card rounded-2xl p-6 bg-zinc-950/80 border-zinc-800/80 hover:border-blue-500/40 text-center flex flex-col items-center justify-center gap-3 group transition-all duration-300"
+                className="glass-card rounded-2xl p-4 sm:p-6 bg-zinc-950/80 border-zinc-800/80 hover:border-blue-500/40 text-center flex flex-col items-center justify-center gap-2.5 sm:gap-3 group transition-all duration-300"
               >
-                <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 group-hover:scale-110 transition-transform">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-zinc-900 border border-zinc-800 group-hover:scale-110 transition-transform">
                   {getIcon(tech.icon)}
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-blue-400 transition-colors">
                     {tech.name}
                   </h4>
-                  <span className="text-[11px] text-zinc-500 font-mono mt-0.5 block">
+                  <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono mt-0.5 block truncate max-w-full">
                     {tech.category}
                   </span>
                 </div>

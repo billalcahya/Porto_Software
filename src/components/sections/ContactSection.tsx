@@ -70,12 +70,12 @@ export function ContactSection({ settings }: ContactProps) {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-12 items-start">
           {/* Contact Details Column */}
           <ScrollReveal direction="left" delay={0.2} className="lg:col-span-1">
-            <div className="glass-card p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/80 space-y-8">
+            <div className="glass-card p-5 sm:p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/80 space-y-8">
               <div>
-                <h3 className="text-2xl font-bold text-white mb-2">Direct Contact</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Direct Contact</h3>
                 <p className="text-xs text-zinc-400 leading-relaxed">
                   Have an urgent requirement or enterprise RFP? Contact us directly.
                 </p>
@@ -88,7 +88,7 @@ export function ContactSection({ settings }: ContactProps) {
                   </div>
                   <div>
                     <h4 className="text-xs font-semibold text-zinc-400 uppercase font-mono">Email Us</h4>
-                    <p className="text-sm font-bold text-white mt-0.5">{settings?.contactEmail || "hello@nexuslabs.dev"}</p>
+                    <p className="text-sm font-bold text-white mt-0.5 break-all">{settings?.contactEmail || "hello@nexuslabs.dev"}</p>
                   </div>
                 </div>
 
@@ -117,7 +117,7 @@ export function ContactSection({ settings }: ContactProps) {
 
           {/* Form Column */}
           <ScrollReveal direction="right" delay={0.3} className="lg:col-span-2">
-            <div className="glass-card p-8 sm:p-10 rounded-3xl border-zinc-800/80 bg-zinc-950/80">
+            <div className="glass-card p-5 sm:p-8 lg:p-10 rounded-3xl border-zinc-800/80 bg-zinc-950/80">
               {statusMsg && (
                 <div
                   className={`p-4 rounded-xl mb-6 flex items-center gap-3 text-sm font-medium ${

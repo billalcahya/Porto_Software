@@ -94,7 +94,7 @@ export function Navbar({ siteName = "NEXUS" }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-panel border-t border-zinc-800 bg-zinc-950/95 px-6 py-6 space-y-4 animate-fadeIn">
+        <div className="md:hidden glass-panel border-t border-zinc-800 bg-zinc-950/95 px-6 py-6 space-y-3 animate-fadeIn max-h-[calc(100vh-5rem)] overflow-y-auto">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -105,9 +105,9 @@ export function Navbar({ siteName = "NEXUS" }: NavbarProps) {
               {link.name}
             </Link>
           ))}
-          <div className="pt-4">
+          <div className="pt-3">
             <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button variant="glow" className="w-full justify-center gap-2">
+              <Button variant="glow" className="w-full justify-center gap-2 py-5 text-sm">
                 Start a Project
                 <ArrowUpRight className="w-4 h-4" />
               </Button>

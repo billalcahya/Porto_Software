@@ -217,7 +217,7 @@ export default function AdminBlogPage() {
         maxWidth="2xl"
       >
         <form onSubmit={handleSave} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-zinc-300 mb-1">Title *</label>
               <Input required value={form.title} onChange={(e) => handleTitleChange(e.target.value)} />
@@ -228,7 +228,7 @@ export default function AdminBlogPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block text-xs font-semibold text-zinc-300 mb-1">Category *</label>
               <Input required value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} />

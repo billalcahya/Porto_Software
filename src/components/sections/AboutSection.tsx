@@ -41,15 +41,15 @@ export function AboutSection({ settings }: AboutProps) {
           </div>
         </ScrollReveal>
 
-        {/* Vision & Mission Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {/* Vision & Mission Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
           <ScrollReveal direction="left" delay={0.2}>
-            <div className="glass-card p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/70 h-full">
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/70 h-full">
               <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-6">
                 <Eye className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Our Vision</h3>
-              <p className="text-zinc-400 leading-relaxed text-base">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Our Vision</h3>
+              <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
                 {settings?.vision ||
                   "To pioneer transformative digital experiences through modern software engineering, artificial intelligence, and world-class UI motion design."}
               </p>
@@ -57,12 +57,12 @@ export function AboutSection({ settings }: AboutProps) {
           </ScrollReveal>
 
           <ScrollReveal direction="right" delay={0.3}>
-            <div className="glass-card p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/70 h-full">
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/70 h-full">
               <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-6">
                 <Target className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">Our Mission</h3>
-              <p className="text-zinc-400 leading-relaxed text-base">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Our Mission</h3>
+              <p className="text-zinc-400 leading-relaxed text-sm sm:text-base">
                 {settings?.mission ||
                   "Empower businesses globally with scalable, secure, and visually stunning digital products built with state-of-the-art tech."}
               </p>
@@ -71,11 +71,11 @@ export function AboutSection({ settings }: AboutProps) {
         </div>
 
         {/* Values & Statistics */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {/* Values List */}
           <ScrollReveal direction="up" delay={0.4} className="lg:col-span-2">
-            <div className="glass-card p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/70 h-full">
-              <h3 className="text-2xl font-bold text-white mb-6">Our Core Engineering Values</h3>
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border-zinc-800/80 bg-zinc-950/70 h-full">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Our Core Engineering Values</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {values.map((val, idx) => (
                   <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-zinc-900/60 border border-zinc-800/60">
@@ -89,23 +89,23 @@ export function AboutSection({ settings }: AboutProps) {
 
           {/* Stats Summary */}
           <ScrollReveal direction="up" delay={0.5} className="lg:col-span-1">
-            <div className="glass-card p-8 rounded-3xl border-zinc-800/80 bg-linear-to-br from-zinc-900 to-zinc-950 h-full flex flex-col justify-between">
+            <div className="glass-card p-6 sm:p-8 rounded-3xl border-zinc-800/80 bg-linear-to-br from-zinc-900 to-zinc-950 h-full flex flex-col justify-between">
               <h3 className="text-xl font-bold text-white mb-6">By The Numbers</h3>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <div className="text-3xl font-extrabold text-white font-mono">{stats.projectsCompleted}+</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono">{stats.projectsCompleted}+</div>
                   <div className="text-xs text-zinc-400 mt-1">Projects Shipped</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-blue-400 font-mono">{stats.satisfiedClients}+</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-blue-400 font-mono">{stats.satisfiedClients}+</div>
                   <div className="text-xs text-zinc-400 mt-1">Global Clients</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-indigo-400 font-mono">{stats.teamExperts}</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-mono">{stats.teamExperts}</div>
                   <div className="text-xs text-zinc-400 mt-1">Senior Engineers</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-extrabold text-cyan-400 font-mono">{stats.yearsExperience} Yrs</div>
+                  <div className="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">{stats.yearsExperience} Yrs</div>
                   <div className="text-xs text-zinc-400 mt-1">Industry Mastery</div>
                 </div>
               </div>

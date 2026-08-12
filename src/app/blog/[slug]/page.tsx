@@ -86,12 +86,12 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
           </div>
 
           {/* Thumbnail */}
-          <div className="relative h-80 sm:h-96 w-full rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl mb-12 bg-zinc-900">
+          <div className="relative h-56 sm:h-80 md:h-96 w-full rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl mb-12 bg-zinc-900">
             <Image src={post.thumbnail} alt={post.title} fill priority className="object-cover" />
           </div>
 
           {/* Content Body */}
-          <div className="glass-card p-8 sm:p-12 rounded-3xl border-zinc-800 bg-zinc-950/80 leading-relaxed text-zinc-300 space-y-6 text-base font-sans whitespace-pre-wrap">
+          <div className="glass-card p-5 sm:p-8 md:p-12 rounded-3xl border-zinc-800 bg-zinc-950/80 leading-relaxed text-zinc-300 space-y-6 text-sm sm:text-base font-sans whitespace-pre-wrap">
             {post.content}
           </div>
 

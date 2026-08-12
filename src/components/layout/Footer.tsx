@@ -19,9 +19,9 @@ export function Footer({ settings }: FooterProps) {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-64 bg-blue-600/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-zinc-800/60">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pb-12 border-b border-zinc-800/60">
           {/* Brand Info */}
-          <div className="md:col-span-1 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-1 space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-linear-to-tr from-blue-600 to-indigo-500 p-px">
                 <div className="w-full h-full bg-zinc-950 rounded-[11px] flex items-center justify-center">
@@ -119,9 +119,9 @@ export function Footer({ settings }: FooterProps) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500 text-center sm:text-left">
           <p>© {currentYear} {settings?.siteName || "NEXUS LABS"}. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
             <span>Security Statement</span>

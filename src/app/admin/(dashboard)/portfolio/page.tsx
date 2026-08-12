@@ -209,7 +209,7 @@ export default function AdminPortfolioPage() {
         maxWidth="xl"
       >
         <form onSubmit={handleSave} className="space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-zinc-300 mb-1">Project Title *</label>
               <Input required value={form.title} onChange={(e) => handleTitleChange(e.target.value)} />
@@ -220,7 +220,7 @@ export default function AdminPortfolioPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="block text-xs font-semibold text-zinc-300 mb-1">Client Name *</label>
               <Input required value={form.client} onChange={(e) => setForm({ ...form, client: e.target.value })} />
@@ -295,7 +295,7 @@ export default function AdminPortfolioPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-semibold text-zinc-300 mb-1">Live Project URL</label>
               <Input

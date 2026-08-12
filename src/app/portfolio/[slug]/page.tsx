@@ -82,7 +82,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
           </div>
 
           {/* Featured Thumbnail Image */}
-          <div className="relative h-96 sm:h-120 w-full rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl mb-12 bg-zinc-900">
+          <div className="relative h-64 sm:h-96 lg:h-120 w-full rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl mb-12 bg-zinc-900">
             <Image
               src={portfolio.thumbnail}
               alt={portfolio.title}
@@ -93,7 +93,7 @@ export default async function PortfolioDetailPage({ params }: PageProps) {
           </div>
 
           {/* Meta Grid & Links */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 rounded-3xl glass-card border-zinc-800 bg-zinc-950/80 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 p-5 sm:p-8 rounded-3xl glass-card border-zinc-800 bg-zinc-950/80 mb-12">
             <div className="flex items-center gap-3">
               <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400">
                 <Building className="w-5 h-5" />

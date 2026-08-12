@@ -46,13 +46,13 @@ export function PortfolioSection({ portfolios = [] }: PortfolioProps) {
 
         {/* Filter Categories */}
         <ScrollReveal delay={0.2}>
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
-            <Filter className="w-4 h-4 text-zinc-500 mr-2 shrink-0" />
+          <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 sm:mb-10 scrollbar-none snap-x touch-pan-x">
+            <Filter className="w-4 h-4 text-zinc-500 mr-1 shrink-0" />
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
+                className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 snap-start shrink-0 ${
                   activeCategory === cat
                     ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
                     : "bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700"
@@ -65,12 +65,12 @@ export function PortfolioSection({ portfolios = [] }: PortfolioProps) {
         </ScrollReveal>
 
         {/* Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {filteredPortfolios.map((item, idx) => (
             <ScrollReveal key={item._id || idx} delay={0.1 * idx}>
               <div className="glass-card rounded-3xl overflow-hidden bg-zinc-950/80 border-zinc-800/80 hover:border-blue-500/40 transition-all duration-300 group">
                 {/* Thumbnail Image Container */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-zinc-900">
+                <div className="relative h-56 sm:h-72 w-full overflow-hidden bg-zinc-900">
                   <Image
                     src={item.thumbnail}
                     alt={item.title}
@@ -81,31 +81,31 @@ export function PortfolioSection({ portfolios = [] }: PortfolioProps) {
                   <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
                   
                   <div className="absolute top-4 left-4">
-                    <Badge variant="glow" className="bg-zinc-950/80 backdrop-blur-md">
+                    <Badge variant="glow" className="bg-zinc-950/80 backdrop-blur-md text-[10px] sm:text-xs">
                       {item.category}
                     </Badge>
                   </div>
-                  <div className="absolute top-4 right-4 text-xs font-mono text-zinc-300 bg-zinc-950/80 px-2.5 py-1 rounded-lg border border-zinc-800">
+                  <div className="absolute top-4 right-4 text-[10px] sm:text-xs font-mono text-zinc-300 bg-zinc-950/80 px-2.5 py-1 rounded-lg border border-zinc-800">
                     {item.year}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-8">
+                <div className="p-5 sm:p-8">
                   <div className="text-xs font-semibold text-blue-400 mb-1">{item.client}</div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg sm:text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-zinc-400 line-clamp-2 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-zinc-400 line-clamp-2 leading-relaxed mb-6">
                     {item.description}
                   </p>
 
                   {/* Tech Badges */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
                     {item.technologies.map((tech, tIdx) => (
                       <span
                         key={tIdx}
-                        className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300"
+                        className="text-[10px] sm:text-[11px] font-mono px-2 sm:px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300"
                       >
                         {tech}
                       </span>
@@ -113,7 +113,7 @@ export function PortfolioSection({ portfolios = [] }: PortfolioProps) {
                   </div>
 
                   {/* Actions */}
-                  <div className="pt-4 border-t border-zinc-900 flex items-center justify-between">
+                  <div className="pt-4 border-t border-zinc-900 flex flex-wrap items-center justify-between gap-3">
                     <Link
                       href={`/portfolio/${item.slug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-white hover:text-blue-400 transition-colors"
@@ -122,7 +122,7 @@ export function PortfolioSection({ portfolios = [] }: PortfolioProps) {
                       <ArrowUpRight className="w-4 h-4" />
                     </Link>
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3">
                       {item.projectUrl && (
                         <a
                           href={item.projectUrl}

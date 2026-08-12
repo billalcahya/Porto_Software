@@ -22,10 +22,16 @@ import {
   Activity,
   LogOut,
   ChevronRight,
+  X,
 } from "lucide-react";
 import { logoutAction } from "@/actions/auth";
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  isMobileOpen?: boolean;
+  onCloseMobile?: () => void;
+}
+
+export function AdminSidebar({ isMobileOpen = false, onCloseMobile }: AdminSidebarProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -68,19 +74,32 @@ export function AdminSidebar() {
     },
   ];
 
-  return (
-    <aside className="w-64 bg-zinc-950 border-r border-zinc-800/80 min-h-screen flex flex-col justify-between shrink-0">
-      <div className="p-6">
+  const renderNavContent = () => (
+    <>
+      <div>
         {/* Brand Header */}
-        <Link href="/" className="flex items-center gap-2.5 mb-8">
-          <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-mono font-bold text-white text-sm shadow-md shadow-blue-500/20">
-            N
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-extrabold text-white font-mono tracking-wider">NEXUS CMS</span>
-            <span className="text-[10px] text-zinc-400">Control Panel</span>
-          </div>
-        </Link>
+        <div className="flex items-center justify-between mb-8">
+          <Link href="/" onClick={onCloseMobile} className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-mono font-bold text-white text-sm shadow-md shadow-blue-500/20">
+              N
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-extrabold text-white font-mono tracking-wider">NEXUS CMS</span>
+              <span className="text-[10px] text-zinc-400">Control Panel</span>
+            </div>
+          </Link>
+
+          {/* Close button for mobile drawer */}
+          {onCloseMobile && (
+            <button
+              onClick={onCloseMobile}
+              className="md:hidden p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-900 transition-colors"
+              aria-label="Close Sidebar"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
+        </div>
 
         {/* Navigation Sections */}
         <div className="space-y-6">
@@ -97,6 +116,7 @@ export function AdminSidebar() {
                     <li key={item.href}>
                       <Link
                         href={item.href}
+                        onClick={onCloseMobile}
                         className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
                           isActive
                             ? "bg-blue-600/15 text-blue-400 border border-blue-500/30"
@@ -119,9 +139,10 @@ export function AdminSidebar() {
       </div>
 
       {/* Logout Action */}
-      <div className="p-4 border-t border-zinc-900">
+      <div className="pt-4 mt-6 border-t border-zinc-900">
         <button
           onClick={async () => {
+            onCloseMobile?.();
             await logoutAction();
             router.push("/admin/login");
             router.refresh();
@@ -132,6 +153,29 @@ export function AdminSidebar() {
           <span>Sign Out</span>
         </button>
       </div>
-    </aside>
+    </>
+  );
+
+  return (
+    <>
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-64 bg-zinc-950 border-r border-zinc-800/80 min-h-screen flex-col justify-between shrink-0 p-6">
+        {renderNavContent()}
+      </aside>
+
+      {/* Mobile Drawer Backdrop & Drawer */}
+      {isMobileOpen && (
+        <>
+          <div
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm md:hidden animate-fadeIn"
+            onClick={onCloseMobile}
+          />
+          <aside className="fixed inset-y-0 left-0 z-50 w-72 max-w-[85vw] bg-zinc-950 border-r border-zinc-800 flex flex-col justify-between p-6 shadow-2xl md:hidden overflow-y-auto">
+            {renderNavContent()}
+          </aside>
+        </>
+      )}
+    </>
   );
 }
+

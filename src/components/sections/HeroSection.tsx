@@ -35,14 +35,14 @@ export function HeroSection({ settings }: HeroProps) {
 
         {/* Hero Heading */}
         <ScrollReveal delay={0.2}>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.05] max-w-5xl mx-auto">
+          <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-[1.08] sm:leading-[1.05] max-w-5xl mx-auto">
             {settings?.heroHeading || "WE BUILD DIGITAL EXPERIENCES."}
           </h1>
         </ScrollReveal>
 
         {/* Hero Subheading */}
         <ScrollReveal delay={0.3}>
-          <p className="mt-6 text-lg sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed font-normal">
+          <p className="mt-4 sm:mt-6 text-base sm:text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed font-normal">
             {settings?.heroSubheading ||
               "Engineered for high performance, bespoke software architecture, scalable cloud systems, and futuristic web applications."}
           </p>
@@ -50,15 +50,15 @@ export function HeroSection({ settings }: HeroProps) {
 
         {/* CTA Buttons */}
         <ScrollReveal delay={0.4}>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/#contact">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4">
+            <Link href="/#contact" className="w-full sm:w-auto">
               <Button size="lg" variant="glow" className="w-full sm:w-auto px-8 gap-3 text-base shadow-xl shadow-blue-600/30">
                 Start a Project
                 <ArrowUpRight className="w-5 h-5" />
               </Button>
             </Link>
 
-            <Link href="/portfolio">
+            <Link href="/portfolio" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="w-full sm:w-auto px-8 gap-2 text-base border-zinc-800 bg-zinc-900/60 hover:bg-zinc-800">
                 <Terminal className="w-5 h-5 text-blue-400" />
                 Explore Selected Works
@@ -69,9 +69,9 @@ export function HeroSection({ settings }: HeroProps) {
 
         {/* Key Feature Pills */}
         <ScrollReveal delay={0.5}>
-          <div className="mt-16 pt-8 border-t border-zinc-900 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 text-left">
+          <div className="mt-12 sm:mt-16 pt-8 border-t border-zinc-900 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 text-left">
             <div className="flex items-center gap-3 glass-panel p-4 rounded-xl border-zinc-800/60">
-              <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
+              <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400 shrink-0">
                 <Zap className="w-5 h-5" />
               </div>
               <div>
@@ -81,7 +81,7 @@ export function HeroSection({ settings }: HeroProps) {
             </div>
 
             <div className="flex items-center gap-3 glass-panel p-4 rounded-xl border-zinc-800/60">
-              <div className="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
+              <div className="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400 shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
@@ -90,8 +90,8 @@ export function HeroSection({ settings }: HeroProps) {
               </div>
             </div>
 
-            <div className="col-span-2 md:col-span-1 flex items-center gap-3 glass-panel p-4 rounded-xl border-zinc-800/60">
-              <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400">
+            <div className="flex items-center gap-3 glass-panel p-4 rounded-xl border-zinc-800/60">
+              <div className="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0">
                 <Sparkles className="w-5 h-5" />
               </div>
               <div>
