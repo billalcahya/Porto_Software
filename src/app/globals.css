@@ -37,18 +37,18 @@ body {
 /* Glassmorphism utility classes - Premium Ice Blue Atelier */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--glass-border);
 }
 
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(186, 230, 253, 0.8);
   box-shadow: 0 4px 24px 0 rgba(2, 132, 199, 0.06);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .glass-card:hover {
@@ -65,20 +65,22 @@ body {
   background-position: 0 0, 18px 18px;
 }
 
-/* Floating Ambient Glow Orbs - Harmonized Pair */
+/* Floating Ambient Glow Orbs - Hardware Accelerated Radial Gradient */
 .orb-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.45;
+  background: radial-gradient(circle, currentColor 0%, transparent 70%);
+  will-change: transform;
+  transform: translateZ(0);
   animation: orbFloat 14s ease-in-out infinite alternate;
 }
 
 @keyframes orbFloat {
-  0% { transform: translate(0px, 0px) scale(1); }
-  50% { transform: translate(35px, -45px) scale(1.12); }
-  100% { transform: translate(-25px, 35px) scale(0.92); }
+  0% { transform: translate3d(0px, 0px, 0px) scale(1); }
+  50% { transform: translate3d(35px, -45px, 0px) scale(1.12); }
+  100% { transform: translate3d(-25px, 35px, 0px) scale(0.92); }
 }
 
 /* Animated Geometry Keyframes */

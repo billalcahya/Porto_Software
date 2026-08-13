@@ -106,7 +106,7 @@ export function HeroSection({ settings }: HeroProps) {
             <ScrollReveal direction="left" delay={0.3}>
               <div className="relative flex items-center justify-center">
                 {/* Ambient Glowing Tech Rings */}
-                <div className="absolute w-80 h-80 sm:w-[480px] sm:h-[480px] rounded-full bg-linear-to-tr from-sky-400/30 via-blue-500/25 to-lime-400/30 blur-3xl animate-pulse pointer-events-none" />
+                <div className="absolute w-80 h-80 sm:w-[480px] sm:h-[480px] rounded-full bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-sky-400/30 via-blue-500/20 to-transparent pointer-events-none transform-gpu" />
                 <div className="absolute w-72 h-72 sm:w-[420px] sm:h-[420px] rounded-full border-2 border-sky-300/40 animate-spin-slow pointer-events-none" />
                 <div className="absolute w-60 h-60 sm:w-[350px] sm:h-[350px] rounded-full border-2 border-dashed border-lime-400/50 animate-spin-reverse pointer-events-none" />
 
