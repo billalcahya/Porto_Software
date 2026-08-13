@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
@@ -298,7 +299,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                   href={item.projectUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 min-w-[200px] flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-lime-400 text-slate-950 hover:bg-lime-300 font-extrabold text-xs uppercase tracking-wider shadow-md glow-lime transition-all"
+                  className="flex-1 min-w-50 flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-lime-400 text-slate-950 hover:bg-lime-300 font-extrabold text-xs uppercase tracking-wider shadow-md glow-lime transition-all"
                 >
                   Visit Live Application
                   <ExternalLink className="w-4 h-4" />
@@ -310,7 +311,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
                   href={item.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 min-w-[180px] flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-950 text-white font-extrabold text-xs uppercase tracking-wider shadow-md border-none"
+                  className="flex-1 min-w-45 flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-950 text-white font-extrabold text-xs uppercase tracking-wider shadow-md border-none"
                 >
                   <GithubIcon className="w-4 h-4 fill-current text-white" />
                   View Repository
@@ -320,7 +321,7 @@ export function PortfolioModal({ item, isOpen, onClose }: PortfolioModalProps) {
               <Link
                 href={`/portfolio/${item.slug}`}
                 onClick={handleAnimatedClose}
-                className="flex-1 min-w-[200px] flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/80 border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white font-extrabold text-xs uppercase tracking-wider shadow-2xs transition-all backdrop-blur-xs"
+                className="flex-1 min-w-50 flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/80 border border-slate-950 text-slate-950 hover:bg-slate-950 hover:text-white font-extrabold text-xs uppercase tracking-wider shadow-2xs transition-all backdrop-blur-xs"
               >
                 Full Case Study Detail
                 <ArrowRight className="w-4 h-4" />

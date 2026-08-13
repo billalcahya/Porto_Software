@@ -10,6 +10,8 @@ import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/JsonLd";
 import connectDB from "@/lib/db";
 import SiteSettings from "@/models/SiteSettings";
 
+import { VisitorTracker } from "@/components/analytics/VisitorTracker";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -48,38 +50,20 @@ export async function generateMetadata(): Promise<Metadata> {
     settings?.seo?.metaDescription ||
     settings?.description ||
     "We engineer high-performance web applications, cloud architecture, custom AI LLM models, and mobile platforms.";
-  const keywords = settings?.seo?.keywords || [
-    "Software House",
-    "Jasa Pembuatan Aplikasi",
-    "Enterprise Software Development",
-    "Next.js Development Agency",
-    "WebGL Three.js Studio",
-    "Enterprise AI Integration",
-    "Cloud Architecture",
-    "UI UX Motion Engineering",
-  ];
-  const ogImage =
-    settings?.seo?.ogImage ||
-    "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80";
 
   return {
     metadataBase: new URL(siteUrl),
-    title: {
-      default: title,
-      template: `%s | ${siteName}`,
-    },
+    title,
     description,
-    keywords,
+    keywords: settings?.seo?.keywords || [
+      "Software House",
+      "Enterprise AI",
+      "Next.js Development",
+      "WebGL Agency",
+    ],
     authors: [{ name: siteName, url: siteUrl }],
     creator: siteName,
     publisher: siteName,
-    category: "technology",
-    alternates: {
-      canonical: "/",
-    },
-    verification: settings?.seo?.googleSiteVerification
-      ? { google: settings.seo.googleSiteVerification }
-      : undefined,
     robots: {
       index: true,
       follow: true,
@@ -93,14 +77,14 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     openGraph: {
       type: "website",
-      locale: "en_US",
+      locale: "id_ID",
       url: siteUrl,
       title,
       description,
       siteName,
       images: [
         {
-          url: ogImage,
+          url: settings?.seo?.ogImage || `${siteUrl}/og-image.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -111,13 +95,21 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
       creator: "@digitalthree",
+      images: [settings?.seo?.ogImage || `${siteUrl}/og-image.jpg`],
+    },
+    icons: {
+      icon: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
     },
   };
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   let settings;
   try {
     await connectDB();
@@ -126,15 +118,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       settings = JSON.parse(JSON.stringify(settingsDoc));
     }
   } catch (err) {
-    console.warn("Root layout DB connection offline:", err);
+    console.warn("RootLayout settings fetch error:", err);
   }
 
   const siteName = settings?.siteName || "DIGITAL THREE";
   const siteUrl = settings?.seo?.siteUrl || defaultAppUrl;
-  const description = settings?.description || "High-performance software engineering & AI studio.";
-  const address = settings?.address || "San Francisco, CA";
-  const email = settings?.contactEmail || "hello@digitalthree.dev";
-  const phone = settings?.contactPhone || "+1 (800) 458-9210";
+  const description = settings?.description || "Software House & Enterprise AI Studio";
+  const address = settings?.contactInfo?.address || "Jakarta, Indonesia";
+  const email = settings?.contactInfo?.email || "hello@digitalthree.dev";
+  const phone = settings?.contactInfo?.phone || "+62 812-3456-7890";
   const socialLinks = settings?.socialLinks
     ? [
         settings.socialLinks.github,
@@ -158,6 +150,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <WebSiteJsonLd name={siteName} url={siteUrl} description={description} />
         <LanguageProvider>
+          <VisitorTracker />
           <GsapScrollProgress />
           <PageLoader />
           <CustomCursor />

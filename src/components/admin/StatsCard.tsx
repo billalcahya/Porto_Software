@@ -1,11 +1,10 @@
-import React from "react";
-import { LucideIcon, Briefcase, BookOpen, Code2, MessageSquare, Users, DollarSign, Activity } from "lucide-react";
+import { LucideIcon, Briefcase, BookOpen, Code2, MessageSquare, Users, DollarSign, Activity, Eye, TrendingUp } from "lucide-react";
 
 interface StatsCardProps {
   title: string;
   value: number | string;
   description?: string;
-  iconName?: "briefcase" | "book-open" | "code" | "message-square" | "users" | "dollar" | "activity";
+  iconName?: "briefcase" | "book-open" | "code" | "message-square" | "users" | "dollar" | "activity" | "eye" | "trending-up";
   icon?: LucideIcon;
   color?: string;
 }
@@ -18,6 +17,8 @@ const iconMap: Record<string, LucideIcon> = {
   users: Users,
   dollar: DollarSign,
   activity: Activity,
+  eye: Eye,
+  "trending-up": TrendingUp,
 };
 
 export function StatsCard({ title, value, description, iconName, icon: ProvidedIcon, color = "blue" }: StatsCardProps) {
