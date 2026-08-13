@@ -30,15 +30,15 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
         </ScrollReveal>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {teamMembers.map((member, idx) => (
-            <ScrollReveal key={member._id || idx} delay={0.1 * idx}>
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-black/8 shadow-xs hover:shadow-xl text-center flex flex-col justify-between h-full group transition-all duration-300">
+        <ScrollReveal delay={0.1}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, idx) => (
+              <div key={member._id || idx} className="bg-white rounded-3xl p-6 sm:p-8 border border-black/8 shadow-xs hover:shadow-xl text-center flex flex-col justify-between h-full group transition-shadow duration-300 transform-gpu">
                 <div>
                   {/* Avatar */}
-                  <div className="relative w-32 h-32 mx-auto rounded-2xl overflow-hidden bg-zinc-100 border-2 border-zinc-200 group-hover:border-zinc-950 mb-6 transition-all duration-300 shadow-xs">
+                  <div className="relative w-32 h-32 mx-auto rounded-2xl overflow-hidden bg-zinc-100 border-2 border-zinc-200 group-hover:border-zinc-950 mb-6 transition-colors duration-300 shadow-xs">
                     {member.avatar ? (
-                      <Image src={member.avatar} alt={member.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <Image src={member.avatar} alt={member.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300 transform-gpu" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-2xl font-bold text-white bg-zinc-950">
                         {member.name.charAt(0)}
@@ -46,7 +46,7 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold uppercase text-zinc-950 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold uppercase text-zinc-950 group-hover:text-blue-600 transition-colors duration-200">
                     {member.name}
                   </h3>
                   <p className="text-xs font-mono font-semibold uppercase text-blue-600 tracking-wider mt-1 mb-3">{member.position}</p>
@@ -106,9 +106,9 @@ export function TeamSection({ teamMembers = [] }: TeamProps) {
                   )}
                 </div>
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

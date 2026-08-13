@@ -34,9 +34,11 @@ export interface IPortfolio {
   client: string;
   category: string;
   description: string;
+  fullDescription?: string;
   thumbnail: string;
   gallery: string[];
   technologies: string[];
+  features?: string[];
   projectUrl?: string;
   githubUrl?: string;
   year: number;
@@ -65,6 +67,7 @@ export interface IProcessStep {
   description: string;
   stepNumber: number;
   icon?: string;
+  deliverables?: string[];
   order: number;
   published: boolean;
   createdAt?: Date;
@@ -188,6 +191,9 @@ export interface ISiteSettings {
     metaTitle?: string;
     metaDescription?: string;
     keywords?: string[];
+    siteUrl?: string;
+    googleSiteVerification?: string;
+    ogImage?: string;
   };
   stats: {
     projectsCompleted: number;

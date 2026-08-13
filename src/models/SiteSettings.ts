@@ -5,7 +5,7 @@ export interface ISiteSettingsDocument extends Omit<ISiteSettings, "_id">, Docum
 
 const SiteSettingsSchema: Schema = new Schema<ISiteSettingsDocument>(
   {
-    siteName: { type: String, default: "NEXUS DIGITAL" },
+    siteName: { type: String, default: "DIGITAL THREE" },
     tagline: { type: String, default: "Architects of Digital Superiority" },
     description: {
       type: String,
@@ -29,7 +29,7 @@ const SiteSettingsSchema: Schema = new Schema<ISiteSettingsDocument>(
         "Empower businesses globally with scalable, secure, and visually stunning digital products built with state-of-the-art technology.",
     },
     values: [{ type: String }],
-    contactEmail: { type: String, default: "hello@nexusdigital.com" },
+    contactEmail: { type: String, default: "hello@digitalthree.dev" },
     contactPhone: { type: String, default: "+1 (555) 234-5678" },
     address: { type: String, default: "Silicon Valley, San Francisco, CA" },
     socialLinks: {
@@ -41,13 +41,16 @@ const SiteSettingsSchema: Schema = new Schema<ISiteSettingsDocument>(
     seo: {
       metaTitle: {
         type: String,
-        default: "NEXUS | Premium Software Engineering & UI/UX Studio",
+        default: "DIGITAL THREE | Premium Software Engineering & UI/UX Studio",
       },
       metaDescription: {
         type: String,
         default: "Custom web development, mobile apps, enterprise cloud architecture, and modern AI software development.",
       },
       keywords: [{ type: String }],
+      siteUrl: { type: String, default: "https://digitalthree.dev" },
+      googleSiteVerification: { type: String, default: "" },
+      ogImage: { type: String, default: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" },
     },
     stats: {
       projectsCompleted: { type: Number, default: 120 },

@@ -32,11 +32,12 @@ export function PricingSection({ pricingPlans = [] }: PricingProps) {
         </ScrollReveal>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {pricingPlans.map((plan, idx) => (
-            <ScrollReveal key={plan._id || idx} delay={0.1 * idx}>
+        <ScrollReveal delay={0.1}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            {pricingPlans.map((plan, idx) => (
               <div
-                className={`bg-white rounded-3xl p-8 sm:p-10 border flex flex-col justify-between h-full relative transition-all duration-300 ${
+                key={plan._id || idx}
+                className={`bg-white rounded-3xl p-8 sm:p-10 border flex flex-col justify-between h-full relative transition-colors duration-200 transform-gpu ${
                   plan.highlighted
                     ? "border-zinc-950 shadow-2xl bg-zinc-950 text-white"
                     : "border-black/8 bg-white text-zinc-900 shadow-xs hover:border-zinc-300"
@@ -97,9 +98,9 @@ export function PricingSection({ pricingPlans = [] }: PricingProps) {
                   </MagneticButton>
                 </div>
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

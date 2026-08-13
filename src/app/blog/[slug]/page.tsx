@@ -11,9 +11,13 @@ import { Footer } from "@/components/layout/Footer";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/utils";
 
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
+
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://digitalthree.dev";
 
 export async function generateMetadata({ params }: PageProps) {
   const resolvedParams = await params;
@@ -22,12 +26,37 @@ export async function generateMetadata({ params }: PageProps) {
     const post = await BlogPost.findOne({ slug: resolvedParams.slug, status: "PUBLISHED" }).lean();
     if (!post) return { title: "Article Not Found" };
 
+    const pageTitle = `${post.title} | Technical Insights`;
+    const pageDesc = post.excerpt;
+    const pageUrl = `${appUrl}/blog/${post.slug}`;
+    const pageImage = post.thumbnail || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80";
+
     return {
-      title: `${post.title} | NEXUS Blog`,
-      description: post.excerpt,
+      title: pageTitle,
+      description: pageDesc,
+      keywords: [post.category, ...(post.tags || []), post.author, "Software Engineering"],
+      alternates: {
+        canonical: `/blog/${post.slug}`,
+      },
+      openGraph: {
+        title: pageTitle,
+        description: pageDesc,
+        url: pageUrl,
+        type: "article",
+        publishedTime: new Date(post.publishedAt || post.createdAt || Date.now()).toISOString(),
+        authors: [post.author],
+        tags: post.tags,
+        images: [{ url: pageImage, width: 1200, height: 630, alt: post.title }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: pageTitle,
+        description: pageDesc,
+        images: [pageImage],
+      },
     };
   } catch {
-    return { title: "NEXUS | Blog Article" };
+    return { title: "DIGITAL THREE | Blog Article" };
   }
 }
 
@@ -54,8 +83,24 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
   const post = JSON.parse(JSON.stringify(postDoc));
   const settings = settingsDoc ? JSON.parse(JSON.stringify(settingsDoc)) : undefined;
 
+  const breadcrumbs = [
+    { name: "Home", item: appUrl },
+    { name: "Blog", item: `${appUrl}/blog` },
+    { name: post.title, item: `${appUrl}/blog/${post.slug}` },
+  ];
+
   return (
     <>
+      <BreadcrumbJsonLd items={breadcrumbs} />
+      <ArticleJsonLd
+        url={`${appUrl}/blog/${post.slug}`}
+        title={post.title}
+        description={post.excerpt}
+        images={[post.thumbnail]}
+        datePublished={new Date(post.publishedAt || post.createdAt || Date.now()).toISOString()}
+        authorName={post.author}
+        publisherName={settings?.siteName || "DIGITAL THREE"}
+      />
       <Navbar siteName={settings?.siteName} />
       <main className="pt-36 pb-28 bg-[#F7F7F5] text-zinc-900 min-h-screen">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

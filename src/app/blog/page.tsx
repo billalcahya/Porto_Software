@@ -10,11 +10,41 @@ import { Footer } from "@/components/layout/Footer";
 import { Badge } from "@/components/ui/badge";
 import { formatDate } from "@/lib/utils";
 import { IBlogPost } from "@/types";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
-export const metadata = {
-  title: "Blog & Insights | NEXUS Digital Atelier",
-  description: "Technical articles on Next.js performance, WebGL shaders, enterprise AI architectures, and liquid UI design.",
-};
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || "https://digitalthree.dev";
+
+export async function generateMetadata() {
+  try {
+    await connectDB();
+    const settings = await SiteSettings.findOne().lean();
+    const siteName = settings?.siteName || "DIGITAL THREE";
+
+    return {
+      title: "Thought Leadership & Tech Guides | " + siteName,
+      description:
+        "Technical articles on Next.js performance, WebGL shaders, enterprise AI architectures, and liquid UI design.",
+      alternates: {
+        canonical: "/blog",
+      },
+      openGraph: {
+        title: "Thought Leadership & Tech Guides | " + siteName,
+        description: "Deep dives into reactive server architecture, enterprise AI systems, and WebGL shaders.",
+        url: `${appUrl}/blog`,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Thought Leadership & Tech Guides | " + siteName,
+        description: "Deep dives into reactive server architecture, enterprise AI systems, and WebGL shaders.",
+      },
+    };
+  } catch {
+    return {
+      title: "Blog & Technical Insights | DIGITAL THREE",
+      description: "Technical articles on Next.js performance, WebGL shaders, and enterprise AI.",
+    };
+  }
+}
 
 export const dynamic = "force-dynamic";
 
@@ -33,10 +63,16 @@ export default async function PublicBlogPage() {
     console.warn("Blog page DB offline:", err);
   }
 
+  const breadcrumbs = [
+    { name: "Home", item: appUrl },
+    { name: "Blog", item: `${appUrl}/blog` },
+  ];
+
   return (
     <>
+      <BreadcrumbJsonLd items={breadcrumbs} />
       <Navbar siteName={settings?.siteName} />
-      <main className="pt-36 pb-28 bg-[#F7F7F5] text-zinc-900 min-h-screen">
+      <main className="pt-36 pb-28 bg-[#f0f7ff] text-slate-900 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20 space-y-4">
             <Badge variant="outline" className="font-mono text-xs uppercase tracking-widest bg-white border-zinc-200 text-zinc-700">

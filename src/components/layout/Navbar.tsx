@@ -5,14 +5,19 @@ import Link from "next/link";
 import { Menu, X, ArrowUpRight, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/animations/MagneticButton";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { useLanguage } from "@/context/LanguageContext";
+
+import Image from "next/image";
 
 interface NavbarProps {
   siteName?: string;
 }
 
-export function Navbar({ siteName = "NEXUS" }: NavbarProps) {
+export function Navbar({ siteName = "DIGITAL THREE" }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,57 +32,67 @@ export function Navbar({ siteName = "NEXUS" }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/#hero" },
-    { name: "About", href: "/#about" },
-    { name: "Services", href: "/#services" },
-    { name: "Work", href: "/portfolio" },
-    { name: "Process", href: "/#process" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/#contact" },
+    { name: t("nav.home", "Home"), href: "/#hero" },
+    { name: t("nav.about", "About"), href: "/#about" },
+    { name: t("nav.services", "Services"), href: "/#services" },
+    { name: t("nav.work", "Work"), href: "/portfolio" },
+    { name: t("nav.process", "Process"), href: "/#process" },
+    { name: t("nav.blog", "Blog"), href: "/blog" },
+    { name: t("nav.contact", "Contact"), href: "/#contact" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/85 backdrop-blur-xl border-b border-black/8 py-3 shadow-xs"
+          ? "bg-white/90 backdrop-blur-xl border-b border-sky-200/80 py-3 shadow-xs"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-zinc-950 p-px shadow-md group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-zinc-950 rounded-[11px] flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-blue-500 group-hover:rotate-12 transition-transform duration-300" />
-              </div>
-            </div>
-            <span className="text-xl font-extrabold tracking-wider text-zinc-950 font-mono">
+          <Link href="/" className="flex items-center gap-3 group">
+            <Image
+              src="/logo.PNG"
+              alt="DIGITAL THREE Logo"
+              width={42}
+              height={42}
+              priority
+              className="object-contain shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+            />
+            <span className="text-xl font-extrabold tracking-wider text-sky-950 font-mono uppercase">
               {siteName}
-              <span className="text-blue-600">.</span>
+              <span className="text-lime-500">.</span>
             </span>
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 bg-white/70 backdrop-blur-md px-6 py-2 rounded-full border border-black/8 shadow-xs">
-            {navLinks.map((link) => (
+          <nav
+            className={`hidden md:flex items-center gap-8 px-6 py-2 rounded-full transition-all duration-300 ${
+              isScrolled
+                ? "bg-white/80 backdrop-blur-md border border-zinc-200/80 shadow-xs"
+                : "bg-transparent border border-transparent shadow-none"
+            }`}
+          >
+            {navLinks.map((link, idx) => (
               <Link
-                key={link.name}
+                key={idx}
                 href={link.href}
-                className="text-xs font-semibold uppercase tracking-wider text-zinc-600 hover:text-zinc-950 transition-colors relative py-1 hover:after:w-full after:w-0 after:h-0.5 after:bg-zinc-950 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300"
+                className="text-xs font-bold uppercase tracking-wider text-slate-800 hover:text-sky-600 transition-colors relative py-1 hover:after:w-full after:w-0 after:h-0.5 after:bg-lime-500 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300"
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
-          {/* Right Action Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Right Action Button & Language Switcher */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
             <MagneticButton strength={0.2}>
-              <Link href="/#contact" data-cursor="LET'S TALK">
-                <Button variant="default" className="bg-zinc-950 text-white hover:bg-zinc-800 rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider gap-2 group shadow-md">
-                  Start a Project
+              <Link href="/#contact">
+                <Button className="bg-lime-400 text-slate-950 hover:bg-lime-300 rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider gap-2 group shadow-md glow-lime border-none">
+                  {t("nav.start_project", "Start a Project")}
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Button>
               </Link>
@@ -87,7 +102,7 @@ export function Navbar({ siteName = "NEXUS" }: NavbarProps) {
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2.5 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-800 hover:text-zinc-950"
+            className="md:hidden p-2.5 rounded-xl bg-white border border-sky-200 text-slate-800 hover:text-sky-950 shadow-xs"
             aria-label="Toggle Navigation"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -97,21 +112,27 @@ export function Navbar({ siteName = "NEXUS" }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-200 bg-white/95 backdrop-blur-xl px-6 py-6 space-y-3 animate-fadeIn max-h-[calc(100vh-5rem)] overflow-y-auto shadow-xl">
-          {navLinks.map((link) => (
+        <div className="md:hidden border-t border-sky-200 bg-white/95 backdrop-blur-xl px-6 py-6 space-y-4 animate-fadeIn max-h-[calc(100vh-5rem)] overflow-y-auto shadow-xl">
+          <div className="flex items-center justify-between py-2 border-b border-sky-100">
+            <span className="text-xs font-mono font-bold uppercase text-slate-500">Language / Bahasa</span>
+            <LanguageSwitcher />
+          </div>
+
+          {navLinks.map((link, idx) => (
             <Link
-              key={link.name}
+              key={idx}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-base font-medium text-zinc-800 hover:text-blue-600 py-2 border-b border-zinc-100"
+              className="block text-base font-bold text-slate-800 hover:text-sky-700 py-2 border-b border-sky-100"
             >
               {link.name}
             </Link>
           ))}
-          <div className="pt-3">
+
+          <div className="pt-2">
             <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button variant="default" className="w-full justify-center gap-2 py-5 text-sm bg-zinc-950 text-white rounded-xl font-bold uppercase tracking-wider">
-                Start a Project
+              <Button className="w-full justify-center gap-2 py-5 text-sm bg-lime-400 text-slate-950 font-bold uppercase tracking-wider rounded-xl shadow-md glow-lime">
+                {t("nav.start_project", "Start a Project")}
                 <ArrowUpRight className="w-4 h-4" />
               </Button>
             </Link>
@@ -121,4 +142,3 @@ export function Navbar({ siteName = "NEXUS" }: NavbarProps) {
     </header>
   );
 }
-

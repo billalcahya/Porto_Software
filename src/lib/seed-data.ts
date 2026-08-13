@@ -33,7 +33,7 @@ export async function seedDatabase() {
   const settingsCount = await SiteSettings.countDocuments();
   if (settingsCount === 0) {
     await SiteSettings.create({
-      siteName: "NEXUS LABS",
+      siteName: "DIGITAL THREE",
       tagline: "Architects of Next-Gen Software & AI Systems",
       description:
         "We engineer high-performance web applications, cloud infrastructure, AI models, and mobile platforms with cinematic UI design and zero compromise on security.",
@@ -50,7 +50,7 @@ export async function seedDatabase() {
         "Predictable & Scalable Architecture",
         "Continuous AI Integration",
       ],
-      contactEmail: "hello@nexuslabs.dev",
+      contactEmail: "hello@digitalthree.dev",
       contactPhone: "+1 (800) 458-9210",
       address: "One Market Tower, Suite 2400, San Francisco, CA 94105",
       socialLinks: {
@@ -58,6 +58,22 @@ export async function seedDatabase() {
         linkedin: "https://linkedin.com",
         twitter: "https://twitter.com",
         instagram: "https://instagram.com",
+      },
+      seo: {
+        metaTitle: "DIGITAL THREE | Software House & Enterprise AI Studio",
+        metaDescription: "We engineer high-performance web applications, enterprise cloud systems, AI LLM solutions, and mobile platforms.",
+        keywords: [
+          "Software House",
+          "Enterprise Web Development",
+          "Next.js Development Agency",
+          "AI LLM Integration",
+          "Cloud Architecture",
+          "Custom Software Engineering",
+          "UI UX Motion Studio",
+        ],
+        siteUrl: "https://digitalthree.dev",
+        googleSiteVerification: "",
+        ogImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
       },
       stats: {
         projectsCompleted: 148,
@@ -184,12 +200,20 @@ export async function seedDatabase() {
         category: "Fintech & AI",
         description:
           "An enterprise algorithmic trading and portfolio management suite powered by real-time neural network predictions, managing $1.2B in assets under management.",
+        fullDescription:
+          "Aura Capital represents a groundbreaking advancement in institutional wealth management technology. Designed to operate under volatile financial market conditions, the platform ingests millions of real-time market data points per second via high-throughput WebSockets.\n\nOur engineering team architected a hybrid Python-Next.js microservice cluster backed by custom deep learning LLM prediction models. The platform enables institutional traders and asset managers to execute automated algorithmic rebalancing strategies with zero latency overhead. Featuring zero-trust encryption, multi-currency custodial wallet integration, and dynamic risk management dashboards.",
         thumbnail: "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
         gallery: [
           "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80",
           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
         ],
         technologies: ["Next.js", "Python", "MongoDB", "Tailwind CSS", "WebSockets"],
+        features: [
+          "Real-time Algorithmic Order Execution",
+          "Neural Network Market Trend Forecasting",
+          "Multi-Currency Wallet Integration",
+          "Sub-Millisecond WebSocket Telemetry",
+        ],
         projectUrl: "https://example.com/auracapital",
         githubUrl: "https://github.com",
         year: 2025,
@@ -204,12 +228,20 @@ export async function seedDatabase() {
         category: "Cloud Architecture",
         description:
           "A sleek dark-mode control panel providing sub-millisecond telemetry monitoring, automated node deployment, and bandwidth analytics across 40 worldwide data centers.",
+        fullDescription:
+          "Vortex Cloud is an enterprise-grade cloud telemetry and orchestration platform built for high-concurrency node deployments. Built on top of Go microservices and a reactive GraphQL data layer, Vortex Cloud delivers single-pane-of-glass visibility for DevOps and infrastructure teams across 40 distributed data centers worldwide.\n\nThe system handles automated container orchestration, load balancer tuning, zero-downtime deployment pipelines, and intelligent DDoS mitigation alerts in real-time.",
         thumbnail: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
         gallery: [
           "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
           "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
         ],
         technologies: ["React", "TypeScript", "Go", "Docker", "GraphQL"],
+        features: [
+          "Sub-Millisecond Node Telemetry",
+          "Automated Multi-Region Node Deployment",
+          "Bandwidth Analytics & Anomaly Alerts",
+          "Dark-Mode Command Center UI",
+        ],
         projectUrl: "https://example.com/vortex",
         githubUrl: "",
         year: 2025,
@@ -224,11 +256,19 @@ export async function seedDatabase() {
         category: "Healthcare & Mobile",
         description:
           "HIPAA-compliant mobile telemedicine portal with encrypted video consultations, vital monitoring wearable integration, and AI-assisted triage.",
+        fullDescription:
+          "OmniHealth bridges healthcare providers and patients with an end-to-end HIPAA-compliant mobile ecosystem. Built using React Native and WebRTC peer-to-peer media channels, the application enables low-latency HD video consultations even in low-bandwidth regional medical clinics.\n\nFeatures continuous Bluetooth wearable integration for real-time heart rate and oxygen telemetry, automated AI triage assistance for clinical staff, and end-to-end encrypted e-prescriptions.",
         thumbnail: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
         gallery: [
           "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
         ],
         technologies: ["React Native", "Node.js", "WebRTC", "PostgreSQL"],
+        features: [
+          "HIPAA-Compliant WebRTC Encrypted Video",
+          "Wearable Vital Signs Live Sync",
+          "AI-Assisted Symptom Triage Engine",
+          "Encrypted E-Prescription Portal",
+        ],
         projectUrl: "https://example.com/omnihealth",
         githubUrl: "",
         year: 2024,
@@ -243,11 +283,19 @@ export async function seedDatabase() {
         category: "Cybersecurity",
         description:
           "Military-grade threat mapping software displaying automated intrusion prevention alerts, live packet analysis, and zero-day anomaly detection.",
+        fullDescription:
+          "CyberPulse is a military-grade cybersecurity operations visualizer that transforms complex network packet logs into an interactive 3D WebGL global threat map. Utilizing custom Three.js GLSL shaders, security analysts can inspect zero-day intrusion vectors, honeypot telemetry, and automated mitigation responses in real-time.",
         thumbnail: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
         gallery: [
           "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
         ],
         technologies: ["Next.js", "Three.js", "Tailwind CSS", "MongoDB"],
+        features: [
+          "Military-Grade Intrusion Mapping",
+          "Zero-Day Threat Anomaly Detection",
+          "Live Packet Analysis Dashboard",
+          "Automated Incident Response Pipeline",
+        ],
         projectUrl: "https://example.com/cyberpulse",
         githubUrl: "",
         year: 2024,

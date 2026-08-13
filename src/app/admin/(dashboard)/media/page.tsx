@@ -87,7 +87,7 @@ export default function AdminMediaPage() {
       {loading ? (
         <div className="text-center py-12 text-zinc-500 font-mono">Loading media gallery...</div>
       ) : mediaFiles.length === 0 ? (
-        <div className="glass-card rounded-2xl p-12 text-center text-zinc-500">
+        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-12 text-center text-zinc-500">
           <ImageIcon className="w-12 h-12 mx-auto mb-3 text-zinc-600" />
           <p className="text-sm">No media files registered in the library.</p>
         </div>
@@ -96,7 +96,7 @@ export default function AdminMediaPage() {
           {mediaFiles.map((item) => (
             <div
               key={item._id}
-              className="glass-card rounded-2xl overflow-hidden bg-zinc-950/80 border-zinc-800/80 group relative flex flex-col justify-between"
+              className="rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 group relative flex flex-col justify-between"
             >
               <div className="relative h-36 w-full bg-zinc-900">
                 <Image src={item.url} alt={item.filename} fill className="object-cover" />

@@ -11,35 +11,49 @@ interface TechProps {
 }
 
 export function TechnologySection({ technologies = [] }: TechProps) {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case "Boxes":
-        return <Boxes className="w-5 h-5 text-blue-600" />;
-      case "FileCode":
-        return <FileCode className="w-5 h-5 text-indigo-600" />;
-      case "Database":
-        return <Database className="w-5 h-5 text-emerald-600" />;
-      case "Palette":
-        return <Palette className="w-5 h-5 text-cyan-600" />;
-      case "Sparkles":
-        return <Sparkles className="w-5 h-5 text-purple-600" />;
-      default:
-        return <Server className="w-5 h-5 text-amber-600" />;
-    }
+  const getIcon = (iconName: string, index: number) => {
+    const iconColors = [
+      "text-sky-700 bg-sky-100 border-sky-200",
+      "text-lime-700 bg-lime-100 border-lime-200",
+      "text-indigo-700 bg-indigo-100 border-indigo-200",
+      "text-emerald-700 bg-emerald-100 border-emerald-200",
+      "text-cyan-700 bg-cyan-100 border-cyan-200",
+      "text-purple-700 bg-purple-100 border-purple-200",
+    ];
+    const colorClass = iconColors[index % iconColors.length];
+
+    const iconComponent = () => {
+      switch (iconName) {
+        case "Boxes":
+          return <Boxes className="w-5 h-5" />;
+        case "FileCode":
+          return <FileCode className="w-5 h-5" />;
+        case "Database":
+          return <Database className="w-5 h-5" />;
+        case "Palette":
+          return <Palette className="w-5 h-5" />;
+        case "Sparkles":
+          return <Sparkles className="w-5 h-5" />;
+        default:
+          return <Server className="w-5 h-5" />;
+      }
+    };
+
+    return <div className={`p-3.5 rounded-2xl border shadow-xs group-hover:scale-110 transition-transform ${colorClass}`}>{iconComponent()}</div>;
   };
 
   return (
-    <section className="py-28 bg-white text-zinc-900 relative border-t border-black/5">
+    <section className="py-28 bg-[#f0f7ff] text-slate-900 relative border-t border-sky-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <Badge variant="outline" className="mb-4 font-mono text-xs uppercase tracking-widest bg-zinc-50 border-zinc-200 text-zinc-700">
+            <Badge variant="outline" className="mb-4 font-mono text-xs uppercase tracking-widest bg-white border-sky-300 text-slate-900 font-bold">
               CORE TECH STACK
             </Badge>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight uppercase leading-[1.08] text-zinc-950">
-              STATE-OF-THE-ART TECHNOLOGY WALL
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight uppercase leading-[1.08] text-slate-950">
+              STATE-OF-THE-ART <span className="gradient-text-vibrant">TECHNOLOGY WALL</span>
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-zinc-600 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed">
               We leverage production-proven frameworks, type-safe languages, and resilient database engines.
             </p>
           </div>
@@ -53,17 +67,14 @@ export function TechnologySection({ technologies = [] }: TechProps) {
                 href={tech.website || "#"}
                 target="_blank"
                 rel="noreferrer"
-                data-cursor="VISIT"
-                className="bg-[#FAFAFA] rounded-3xl p-6 border border-black/8 hover:border-blue-500/40 text-center flex flex-col items-center justify-center gap-3 group transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                className="bg-white rounded-3xl p-6 border border-sky-200/80 hover:border-lime-400 text-center flex flex-col items-center justify-center gap-3 group transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
-                <div className="p-3.5 rounded-2xl bg-white border border-zinc-200/80 shadow-xs group-hover:scale-110 transition-transform">
-                  {getIcon(tech.icon)}
-                </div>
+                {getIcon(tech.icon, idx)}
                 <div>
-                  <h4 className="text-sm font-bold text-zinc-950 uppercase tracking-tight group-hover:text-blue-600 transition-colors">
+                  <h4 className="text-sm font-bold text-slate-950 uppercase tracking-tight group-hover:text-sky-700 transition-colors">
                     {tech.name}
                   </h4>
-                  <span className="text-[10px] text-zinc-500 font-mono mt-1 block uppercase tracking-wider truncate max-w-full">
+                  <span className="text-[10px] text-slate-500 font-mono font-bold mt-1 block uppercase tracking-wider truncate max-w-full">
                     {tech.category}
                   </span>
                 </div>

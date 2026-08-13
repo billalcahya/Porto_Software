@@ -33,11 +33,11 @@ export function StatsCard({ title, value, description, iconName, icon: ProvidedI
   };
 
   return (
-    <div className="glass-card rounded-2xl p-6 bg-zinc-950/80 border-zinc-800/80 flex items-center justify-between">
+    <div className="rounded-2xl p-6 bg-zinc-900 border border-zinc-800 text-white shadow-md flex items-center justify-between">
       <div>
         <p className="text-xs font-semibold text-zinc-400 uppercase font-mono">{title}</p>
         <h3 className="text-3xl font-extrabold text-white mt-1 font-mono">{value}</h3>
-        {description && <p className="text-xs text-zinc-500 mt-1">{description}</p>}
+        {description && <p className="text-xs text-zinc-400 mt-1">{description}</p>}
       </div>
       <div className={`p-3.5 rounded-2xl border ${colors[color] || colors.blue}`}>
         <Icon className="w-6 h-6" />

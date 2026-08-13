@@ -26,6 +26,8 @@ import {
 } from "lucide-react";
 import { logoutAction } from "@/actions/auth";
 
+import Image from "next/image";
+
 interface AdminSidebarProps {
   isMobileOpen?: boolean;
   onCloseMobile?: () => void;
@@ -79,13 +81,17 @@ export function AdminSidebar({ isMobileOpen = false, onCloseMobile }: AdminSideb
       <div>
         {/* Brand Header */}
         <div className="flex items-center justify-between mb-8">
-          <Link href="/" onClick={onCloseMobile} className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-mono font-bold text-white text-sm shadow-md shadow-blue-500/20">
-              N
-            </div>
+          <Link href="/" onClick={onCloseMobile} className="flex items-center gap-3">
+            <Image
+              src="/logo.PNG"
+              alt="DIGITAL THREE Logo"
+              width={36}
+              height={36}
+              className="object-contain shrink-0 drop-shadow-md"
+            />
             <div className="flex flex-col">
-              <span className="text-sm font-extrabold text-white font-mono tracking-wider">NEXUS CMS</span>
-              <span className="text-[10px] text-zinc-400">Control Panel</span>
+              <span className="text-sm font-extrabold text-white font-mono tracking-wider">DIGITAL THREE CMS</span>
+              <span className="text-[10px] text-zinc-400 font-mono">Control Panel</span>
             </div>
           </Link>
 
@@ -119,7 +125,7 @@ export function AdminSidebar({ isMobileOpen = false, onCloseMobile }: AdminSideb
                         onClick={onCloseMobile}
                         className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
                           isActive
-                            ? "bg-blue-600/15 text-blue-400 border border-blue-500/30"
+                            ? "bg-lime-400/15 text-lime-400 border border-lime-500/30 font-bold shadow-xs"
                             : "text-zinc-400 hover:text-white hover:bg-zinc-900"
                         }`}
                       >
@@ -127,7 +133,7 @@ export function AdminSidebar({ isMobileOpen = false, onCloseMobile }: AdminSideb
                           <Icon className="w-4 h-4" />
                           <span>{item.name}</span>
                         </div>
-                        {isActive && <ChevronRight className="w-3.5 h-3.5 text-blue-400" />}
+                        {isActive && <ChevronRight className="w-3.5 h-3.5 text-lime-400" />}
                       </Link>
                     </li>
                   );
@@ -178,4 +184,3 @@ export function AdminSidebar({ isMobileOpen = false, onCloseMobile }: AdminSideb
     </>
   );
 }
-

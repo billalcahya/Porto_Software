@@ -59,7 +59,7 @@ export default async function AdminDashboardPage() {
       {/* Grid 2 Columns: Recent Messages & Activity Logs */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Recent Messages */}
-        <div className="glass-card rounded-2xl p-6 bg-zinc-950/80 border-zinc-800/80 space-y-4">
+        <div className="rounded-2xl p-6 bg-zinc-900 border border-zinc-800 shadow-md space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <MessageSquare className="w-4 h-4 text-blue-400" />
@@ -106,7 +106,7 @@ export default async function AdminDashboardPage() {
         </div>
 
         {/* Recent System Activity Logs */}
-        <div className="glass-card rounded-2xl p-6 bg-zinc-950/80 border-zinc-800/80 space-y-4">
+        <div className="rounded-2xl p-6 bg-zinc-900 border border-zinc-800 shadow-md space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               <Activity className="w-4 h-4 text-indigo-400" />
@@ -122,7 +122,7 @@ export default async function AdminDashboardPage() {
               <p className="text-center text-zinc-500 text-xs py-6">No recent activity recorded.</p>
             ) : (
               recentActivities.map((act, idx) => (
-                <div key={act._id || idx} className="flex items-start justify-between p-3 rounded-xl bg-zinc-900/60 border border-zinc-800/60 text-xs">
+                <div key={act._id || idx} className="flex items-start justify-between p-3 rounded-xl bg-zinc-950/80 border border-zinc-800/80 text-xs">
                   <div>
                     <span className="font-semibold text-blue-400">{act.userName}</span> executed{" "}
                     <span className="font-mono text-white px-1.5 py-0.5 rounded bg-zinc-800 border border-zinc-700">{act.action}</span>

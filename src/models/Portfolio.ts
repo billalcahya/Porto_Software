@@ -10,9 +10,11 @@ const PortfolioSchema: Schema = new Schema<IPortfolioDocument>(
     client: { type: String, required: true },
     category: { type: String, required: true, index: true },
     description: { type: String, required: true },
+    fullDescription: { type: String, default: "" },
     thumbnail: { type: String, required: true },
     gallery: [{ type: String }],
     technologies: [{ type: String }],
+    features: [{ type: String }],
     projectUrl: { type: String, default: "" },
     githubUrl: { type: String, default: "" },
     year: { type: Number, required: true },
@@ -20,8 +22,13 @@ const PortfolioSchema: Schema = new Schema<IPortfolioDocument>(
     published: { type: Boolean, default: true, index: true },
     order: { type: Number, default: 0 },
   },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
+
+// Delete cached model in dev mode to ensure schema updates take effect immediately
+if (process.env.NODE_ENV === "development") {
+  delete mongoose.models.Portfolio;
+}
 
 export const Portfolio: Model<IPortfolioDocument> =
   mongoose.models.Portfolio || mongoose.model<IPortfolioDocument>("Portfolio", PortfolioSchema);

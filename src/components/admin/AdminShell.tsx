@@ -28,7 +28,7 @@ export function AdminShell({ userName, userRole, children }: AdminShellProps) {
           userRole={userRole}
           onToggleMobileMenu={() => setIsMobileOpen(!isMobileOpen)}
         />
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto">{children}</main>
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto bg-zinc-950">{children}</main>
       </div>
     </div>
   );

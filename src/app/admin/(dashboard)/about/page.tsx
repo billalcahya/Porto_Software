@@ -69,7 +69,7 @@ export default function AdminAboutPage() {
         </div>
       )}
 
-      <form onSubmit={handleSave} className="glass-card p-8 rounded-3xl border-zinc-800 bg-zinc-950/80 space-y-6">
+      <form onSubmit={handleSave} className="p-8 rounded-3xl border border-zinc-800 bg-zinc-900 shadow-md space-y-6">
         <div>
           <label className="block text-xs font-semibold text-zinc-300 mb-2">Company Vision *</label>
           <Textarea
@@ -103,7 +103,7 @@ export default function AdminAboutPage() {
           />
         </div>
 
-        <div className="pt-4 border-t border-zinc-900 grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="pt-4 border-t border-zinc-800 grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div>
             <label className="block text-xs font-semibold text-zinc-400 mb-1">Projects Completed</label>
             <Input

@@ -102,7 +102,7 @@ export default function AdminSettingsPage() {
         </div>
       )}
 
-      <form onSubmit={handleSave} className="glass-card p-8 rounded-3xl border-zinc-800 bg-zinc-950/80 space-y-6">
+      <form onSubmit={handleSave} className="p-8 rounded-3xl border border-zinc-800 bg-zinc-900 shadow-xl space-y-6">
         {activeTab === "general" && (
           <>
             <div className="grid grid-cols-2 gap-4">
@@ -176,10 +176,24 @@ export default function AdminSettingsPage() {
         {activeTab === "seo" && (
           <>
             <div>
+              <label className="block text-xs font-semibold text-zinc-300 mb-1">Production Site URL</label>
+              <Input
+                placeholder="https://digitalthree.dev"
+                value={settings.seo?.siteUrl || ""}
+                onChange={(e) =>
+                  setSettings({
+                    ...settings,
+                    seo: { ...settings.seo, siteUrl: e.target.value },
+                  })
+                }
+              />
+            </div>
+
+            <div>
               <label className="block text-xs font-semibold text-zinc-300 mb-1">Default Meta Title *</label>
               <Input
                 required
-                value={settings.seo?.metaTitle}
+                value={settings.seo?.metaTitle || ""}
                 onChange={(e) =>
                   setSettings({
                     ...settings,
@@ -194,7 +208,7 @@ export default function AdminSettingsPage() {
               <Textarea
                 required
                 rows={3}
-                value={settings.seo?.metaDescription}
+                value={settings.seo?.metaDescription || ""}
                 onChange={(e) =>
                   setSettings({
                     ...settings,
@@ -207,7 +221,7 @@ export default function AdminSettingsPage() {
             <div>
               <label className="block text-xs font-semibold text-zinc-300 mb-1">SEO Keywords (Comma separated)</label>
               <Input
-                value={settings.seo?.keywords?.join(", ")}
+                value={settings.seo?.keywords?.join(", ") || ""}
                 onChange={(e) =>
                   setSettings({
                     ...settings,
@@ -218,6 +232,35 @@ export default function AdminSettingsPage() {
                   })
                 }
               />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-semibold text-zinc-300 mb-1">Google Site Verification Token</label>
+                <Input
+                  placeholder="google-site-verification-token"
+                  value={settings.seo?.googleSiteVerification || ""}
+                  onChange={(e) =>
+                    setSettings({
+                      ...settings,
+                      seo: { ...settings.seo, googleSiteVerification: e.target.value },
+                    })
+                  }
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-zinc-300 mb-1">Default OpenGraph Image URL</label>
+                <Input
+                  placeholder="https://..."
+                  value={settings.seo?.ogImage || ""}
+                  onChange={(e) =>
+                    setSettings({
+                      ...settings,
+                      seo: { ...settings.seo, ogImage: e.target.value },
+                    })
+                  }
+                />
+              </div>
             </div>
           </>
         )}

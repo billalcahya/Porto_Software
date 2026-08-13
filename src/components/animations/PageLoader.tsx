@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import gsap from "gsap";
 import { Cpu } from "lucide-react";
 
+import Image from "next/image";
+
 export function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -46,12 +48,16 @@ export function PageLoader() {
       id="page-loader"
       className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center pointer-events-auto"
     >
-      <div id="loader-logo" className="opacity-0 scale-90 flex items-center gap-3 mb-6">
-        <div className="w-12 h-12 rounded-2xl bg-zinc-900 flex items-center justify-center shadow-xl">
-          <Cpu className="w-6 h-6 text-blue-500 animate-pulse" />
-        </div>
-        <span className="text-2xl font-extrabold tracking-wider text-zinc-950 font-mono">
-          NEXUS<span className="text-blue-600">.</span>
+      <div id="loader-logo" className="opacity-0 scale-90 flex items-center gap-4 mb-6">
+        <Image
+          src="/logo.PNG"
+          alt="DIGITAL THREE Logo"
+          width={56}
+          height={56}
+          className="object-contain shrink-0 drop-shadow-md"
+        />
+        <span className="text-2xl font-extrabold tracking-wider text-zinc-950 font-mono uppercase">
+          DIGITAL THREE<span className="text-blue-600">.</span>
         </span>
       </div>
 

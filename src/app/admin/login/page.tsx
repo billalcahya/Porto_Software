@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Cpu, Lock, Mail, AlertCircle, ArrowRight } from "lucide-react";
+import { Lock, Mail, AlertCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { loginAction } from "@/actions/auth";
@@ -37,12 +38,14 @@ export default function AdminLoginPage() {
 
       <div className="w-full max-w-md relative z-10">
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-2xl bg-linear-to-tr from-blue-600 to-indigo-500 p-px mx-auto mb-4 shadow-xl shadow-blue-500/20">
-            <div className="w-full h-full bg-zinc-950 rounded-[15px] flex items-center justify-center">
-              <Cpu className="w-6 h-6 text-blue-400" />
-            </div>
-          </div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">NEXUS CMS Portal</h1>
+          <Image
+            src="/logo.PNG"
+            alt="DIGITAL THREE Logo"
+            width={64}
+            height={64}
+            className="object-contain mx-auto mb-4 drop-shadow-2xl"
+          />
+          <h1 className="text-2xl font-bold text-white tracking-tight">DIGITAL THREE CMS Portal</h1>
           <p className="text-xs text-zinc-400 mt-1">Sign in with administrative credentials</p>
         </div>
 

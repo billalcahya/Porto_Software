@@ -47,7 +47,7 @@ export function ScrollReveal({
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className={className}
+      className={`transform-gpu ${className}`}
     >
       {children}
     </motion.div>
@@ -91,25 +91,18 @@ export function TextReveal({
   text: string;
   className?: string;
 }) {
-  const words = text.split(" ");
   return (
-    <motion.span className={`inline-block ${className}`}>
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: i * 0.05,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="inline-block mr-[0.25em]"
-        >
-          {word}
-        </motion.span>
-      ))}
+    <motion.span
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className={`inline-block transform-gpu ${className}`}
+    >
+      {text}
     </motion.span>
   );
 }
