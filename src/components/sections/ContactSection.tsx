@@ -12,12 +12,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLanguage } from "@/context/LanguageContext";
 import { submitContactMessageAction } from "@/actions/contact";
 import { ISiteSettings } from "@/types";
+import { DetailShaderCanvas } from "@/components/webgl/DetailShaderCanvas";
+import { AnimatedGeometryBackground } from "@/components/webgl/AnimatedGeometryBackground";
 
 interface ContactProps {
   settings?: ISiteSettings;
+  isEmbedded?: boolean;
 }
 
-export function ContactSection({ settings }: ContactProps) {
+export function ContactSection({ settings, isEmbedded = false }: ContactProps) {
   const { t } = useLanguage();
 
   const [formData, setFormData] = useState({
@@ -58,7 +61,24 @@ export function ContactSection({ settings }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-28 bg-[#f0f7ff] text-slate-900 relative border-t border-sky-200/60">
+    <section id="contact" className={`py-28 text-slate-900 relative ${isEmbedded ? "bg-transparent" : "bg-[#F7F7F5] overflow-hidden border-t border-black/5"}`}>
+      {!isEmbedded && (
+        <>
+          {/* WebGL GLSL Shader Liquid Silk Background */}
+          <DetailShaderCanvas />
+
+          {/* Tech Blueprint Dot Grid Pattern */}
+          <div className="absolute inset-0 bg-tech-grid opacity-50 pointer-events-none z-0" />
+
+          {/* 3D Blueprint Wireframe SVG Geometry Suite */}
+          <AnimatedGeometryBackground />
+
+          {/* Ambient Glow Orbs */}
+          <div className="orb-glow w-[38rem] h-[38rem] bg-sky-400/25 top-10 left-[8%] pointer-events-none" />
+          <div className="orb-glow w-[34rem] h-[34rem] bg-lime-400/25 top-1/2 right-[4%] pointer-events-none" />
+        </>
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
           <div className="text-center max-w-4xl mx-auto mb-20">

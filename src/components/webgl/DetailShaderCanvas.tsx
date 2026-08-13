@@ -4,7 +4,7 @@ import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-// High-Performance Domain-Warped Liquid Silk Shader Plane
+// High-Performance Pure Light Theme Pastel Shader (Zero Black Bleed)
 const DetailShaderPlane = () => {
   const meshRef = useRef<THREE.Mesh>(null);
 
@@ -38,28 +38,33 @@ const DetailShaderPlane = () => {
 
     void main() {
       vec2 uv = vUv;
-      float t = uTime * 0.25;
+      float t = uTime * 0.18;
 
-      // GPU Domain warping for liquid silk motion
-      vec2 p = uv * 3.0;
-      p.x += sin(p.y * 2.2 + t) * 0.35;
-      p.y += cos(p.x * 2.2 + t * 0.7) * 0.35;
+      // Independent smooth trigonometric waves
+      float w1 = sin(uv.x * 3.5 + t) * 0.5 + 0.5;
+      float w2 = cos(uv.y * 3.0 - t * 0.8) * 0.5 + 0.5;
+      float w3 = sin((uv.x + uv.y) * 2.5 + t * 0.6) * 0.5 + 0.5;
 
-      float wave1 = sin(p.x + p.y + t) * 0.5 + 0.5;
-      float wave2 = cos(p.x * 1.6 - t * 0.6) * 0.5 + 0.5;
-      float combined = mix(wave1, wave2, 0.5);
+      float factorCyan = w1 * 0.45;
+      float factorLime = w2 * 0.38;
+      float factorBlue = w3 * 0.32;
 
-      // Bright Cinematic Atelier Palette: Off-white base, soft electric cyan, sky blue, vibrant lime
-      vec3 colorBase = vec3(0.97, 0.97, 0.96); // #F7F7F5
-      vec3 colorCyan = vec3(0.68, 0.88, 0.98); // Soft Electric Cyan
-      vec3 colorLime = vec3(0.84, 0.95, 0.72); // Soft Vibrant Lime
-      vec3 colorBlue = vec3(0.76, 0.85, 1.00); // Soft Blue
+      // Rich Vibrant Light Theme Palette (Pure Off-White & Vivid Pastels)
+      vec3 colBase = vec3(0.96, 0.97, 0.98); // #F5F7FA Base
+      vec3 colCyan = vec3(0.55, 0.82, 0.98); // Vivid Electric Cyan
+      vec3 colLime = vec3(0.72, 0.92, 0.55); // Vivid Soft Lime
+      vec3 colBlue = vec3(0.68, 0.78, 0.98); // Vivid Sky Blue
 
-      vec3 col = mix(colorBase, colorCyan, combined * 0.55);
-      col = mix(col, colorLime, (sin(uv.y * 3.5 + t) * 0.5 + 0.5) * 0.35);
-      col = mix(col, colorBlue, (cos(uv.x * 3.5 - t * 0.5) * 0.5 + 0.5) * 0.35);
+      vec3 col = colBase;
+      col = mix(col, colCyan, factorCyan);
+      col = mix(col, colLime, factorLime);
+      col = mix(col, colBlue, factorBlue);
 
-      gl_FragColor = vec4(col, 0.85);
+      // Clamp color channels to guarantee minimum brightness >= 0.75 (Never dark)
+      col = max(col, vec3(0.75));
+
+      // Output fully opaque color to prevent WebGL black clear-color bleed
+      gl_FragColor = vec4(col, 1.0);
     }
   `;
 
@@ -70,7 +75,7 @@ const DetailShaderPlane = () => {
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
-        transparent
+        transparent={false}
         depthWrite={false}
       />
     </mesh>
@@ -79,11 +84,11 @@ const DetailShaderPlane = () => {
 
 export function DetailShaderCanvas() {
   return (
-    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-90">
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden opacity-75">
       <Canvas
-        dpr={[1, 1.5]}
+        dpr={1}
         camera={{ position: [0, 0, 1] }}
-        gl={{ alpha: true, antialias: false, powerPreference: "high-performance" }}
+        gl={{ alpha: false, antialias: false, powerPreference: "high-performance" }}
         style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
       >
         <DetailShaderPlane />

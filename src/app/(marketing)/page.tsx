@@ -28,6 +28,9 @@ import { CTASection } from "@/components/sections/CTASection";
 import { CinematicTicker } from "@/components/animations/CinematicTicker";
 import { FaqJsonLd } from "@/components/seo/JsonLd";
 
+import { DetailShaderCanvas } from "@/components/webgl/DetailShaderCanvas";
+import { AnimatedGeometryBackground } from "@/components/webgl/AnimatedGeometryBackground";
+
 export async function generateMetadata() {
   try {
     await connectDB();
@@ -125,8 +128,29 @@ export default async function HomePage() {
       <TestimonialsSection testimonials={testimonials} />
       <TeamSection teamMembers={teamMembers} />
       <PricingSection pricingPlans={pricingPlans} />
-      <FAQSection faqs={faqs} />
-      <ContactSection settings={settings} />
+      
+      {/* Unified Continuous WebGL GLSL Liquid Silk Shader Container for FAQ + Contact */}
+      <div className="relative overflow-hidden bg-[#F7F7F5] border-t border-black/5">
+        {/* Single Continuous WebGL GLSL Shader Canvas */}
+        <DetailShaderCanvas />
+
+        {/* Tech Blueprint Dot Grid Pattern */}
+        <div className="absolute inset-0 bg-tech-grid opacity-50 pointer-events-none z-0" />
+
+        {/* 3D Blueprint Wireframe SVG Geometry Suite */}
+        <AnimatedGeometryBackground />
+
+        {/* Continuous Ambient Glow Orbs */}
+        <div className="orb-glow w-[44rem] h-[44rem] bg-sky-400/25 top-10 left-[5%] pointer-events-none" />
+        <div className="orb-glow w-[38rem] h-[38rem] bg-lime-400/25 top-1/3 right-[3%] pointer-events-none" />
+        <div className="orb-glow w-[42rem] h-[42rem] bg-cyan-400/20 bottom-10 left-[10%] pointer-events-none" />
+
+        <div className="relative z-10">
+          <FAQSection faqs={faqs} isEmbedded />
+          <ContactSection settings={settings} isEmbedded />
+        </div>
+      </div>
+
       <CinematicTicker />
       <CTASection />
     </>
