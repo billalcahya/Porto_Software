@@ -141,8 +141,8 @@ export default async function RootLayout({
     : [];
 
   return (
-    <html lang="id" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full bg-[#f0f7ff] text-slate-900 flex flex-col font-sans selection:bg-lime-400 selection:text-slate-950">
+    <html lang="id" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body suppressHydrationWarning className="min-h-full bg-[#f0f7ff] text-slate-900 flex flex-col font-sans selection:bg-lime-400 selection:text-slate-950">
         <OrganizationJsonLd
           name={siteName}
           url={siteUrl}

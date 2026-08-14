@@ -68,18 +68,6 @@ export function PageLoader() {
       id="page-loader"
       className="fixed inset-0 z-[100] bg-[#FAFAFA] flex flex-col items-center justify-center pointer-events-auto"
     >
-<<<<<<< Updated upstream
-      <div id="loader-logo" className="opacity-0 scale-90 flex items-center gap-4 mb-6">
-        <Image
-          src="/logo.PNG"
-          alt="DIGITAL THREE Logo"
-          width={56}
-          height={56}
-          className="object-contain shrink-0 drop-shadow-md"
-        />
-        <span className="text-2xl font-extrabold tracking-wider text-zinc-950 font-mono uppercase">
-          DIGITAL THREE<span className="text-blue-600">.</span>
-=======
       <style>{`
         @keyframes fadeIn {
           0% { opacity: 0; transform: translateY(16px); }
@@ -94,7 +82,6 @@ export function PageLoader() {
         {/* Real Loading Percentage */}
         <span className="text-6xl sm:text-7xl font-light tracking-tighter text-zinc-950">
           {displayProgress}<span className="text-zinc-300 font-extralight">%</span>
->>>>>>> Stashed changes
         </span>
       </div>
 

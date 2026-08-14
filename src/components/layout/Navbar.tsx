@@ -2,17 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-<<<<<<< Updated upstream
-=======
 import Image from "next/image";
->>>>>>> Stashed changes
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/animations/MagneticButton";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { useLanguage } from "@/context/LanguageContext";
-
-import Image from "next/image";
 
 interface NavbarProps {
   siteName?: string;
@@ -47,37 +42,14 @@ export function Navbar({ siteName = "DIGITAL THREE" }: NavbarProps) {
 
   return (
     <header
-<<<<<<< Updated upstream
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 backdrop-blur-xl border-b border-sky-200/80 py-3 shadow-xs"
-          : "bg-transparent py-5"
-      }`}
-=======
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
         ? "bg-white/85 backdrop-blur-xl border-b border-black/8 py-3 shadow-xs"
         : "bg-transparent py-5"
         }`}
->>>>>>> Stashed changes
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-<<<<<<< Updated upstream
-          <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/logo.PNG"
-              alt="DIGITAL THREE Logo"
-              width={42}
-              height={42}
-              priority
-              className="object-contain shrink-0 group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
-            />
-            <span className="text-xl font-extrabold tracking-wider text-sky-950 font-mono uppercase">
-              {siteName}
-              <span className="text-lime-500">.</span>
-            </span>
-=======
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 sm:w-16 sm:h-20 rounded-xl group-hover:scale-105 transition-transform duration-300">
               <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
@@ -93,16 +65,14 @@ export function Navbar({ siteName = "DIGITAL THREE" }: NavbarProps) {
                 />
               </div>
             </div>
->>>>>>> Stashed changes
           </Link>
 
           {/* Desktop Nav Links */}
           <nav
-            className={`hidden md:flex items-center gap-8 px-6 py-2 rounded-full transition-all duration-300 ${
-              isScrolled
-                ? "bg-white/80 backdrop-blur-md border border-zinc-200/80 shadow-xs"
-                : "bg-transparent border border-transparent shadow-none"
-            }`}
+            className={`hidden md:flex items-center gap-8 px-6 py-2 rounded-full transition-all duration-300 ${isScrolled
+              ? "bg-white/80 backdrop-blur-md border border-zinc-200/80 shadow-xs"
+              : "bg-transparent border border-transparent shadow-none"
+              }`}
           >
             {navLinks.map((link, idx) => (
               <Link
@@ -137,37 +107,39 @@ export function Navbar({ siteName = "DIGITAL THREE" }: NavbarProps) {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </div>
+      </div >
 
       {/* Mobile Drawer */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-sky-200 bg-white/95 backdrop-blur-xl px-6 py-6 space-y-4 animate-fadeIn max-h-[calc(100vh-5rem)] overflow-y-auto shadow-xl">
-          <div className="flex items-center justify-between py-2 border-b border-sky-100">
-            <span className="text-xs font-mono font-bold uppercase text-slate-500">Language / Bahasa</span>
-            <LanguageSwitcher />
-          </div>
+      {
+        isMobileMenuOpen && (
+          <div className="md:hidden border-t border-sky-200 bg-white/95 backdrop-blur-xl px-6 py-6 space-y-4 animate-fadeIn max-h-[calc(100vh-5rem)] overflow-y-auto shadow-xl">
+            <div className="flex items-center justify-between py-2 border-b border-sky-100">
+              <span className="text-xs font-mono font-bold uppercase text-slate-500">Language / Bahasa</span>
+              <LanguageSwitcher />
+            </div>
 
-          {navLinks.map((link, idx) => (
-            <Link
-              key={idx}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-base font-bold text-slate-800 hover:text-sky-700 py-2 border-b border-sky-100"
-            >
-              {link.name}
-            </Link>
-          ))}
+            {navLinks.map((link, idx) => (
+              <Link
+                key={idx}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-base font-bold text-slate-800 hover:text-sky-700 py-2 border-b border-sky-100"
+              >
+                {link.name}
+              </Link>
+            ))}
 
-          <div className="pt-2">
-            <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full justify-center gap-2 py-5 text-sm bg-lime-400 text-slate-950 font-bold uppercase tracking-wider rounded-xl shadow-md glow-lime">
-                {t("nav.start_project", "Start a Project")}
-                <ArrowUpRight className="w-4 h-4" />
-              </Button>
-            </Link>
+            <div className="pt-2">
+              <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="w-full justify-center gap-2 py-5 text-sm bg-lime-400 text-slate-950 font-bold uppercase tracking-wider rounded-xl shadow-md glow-lime">
+                  {t("nav.start_project", "Start a Project")}
+                  <ArrowUpRight className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      )}
-    </header>
+        )
+      }
+    </header >
   );
 }
