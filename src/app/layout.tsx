@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   const siteName = settings?.siteName || "DIGITAL THREE";
   const siteUrl = settings?.seo?.siteUrl || defaultAppUrl;
-  const title = settings?.seo?.metaTitle || `${siteName} | Software House & Enterprise AI Studio`;
+  const title = settings?.seo?.metaTitle || `${siteName}`;
   const description =
     settings?.seo?.metaDescription ||
     settings?.description ||
@@ -99,8 +99,12 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [settings?.seo?.ogImage || `${siteUrl}/og-image.jpg`],
     },
     icons: {
-      icon: "/favicon.ico",
-      apple: "/apple-touch-icon.png",
+      icon: [
+        { url: "/logo.PNG", type: "image/png" },
+        { url: "/favicon.ico" },
+      ],
+      shortcut: "/logo.PNG",
+      apple: "/logo.PNG",
     },
   };
 }

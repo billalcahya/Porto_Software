@@ -6,7 +6,7 @@ const JWT_SECRET = new TextEncoder().encode(
   process.env.AUTH_SECRET || "super-secret-jwt-key-change-in-production-32chars"
 );
 
-const COOKIE_NAME = "nexus_admin_session";
+const COOKIE_NAME = "digitalthree_admin_session";
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;

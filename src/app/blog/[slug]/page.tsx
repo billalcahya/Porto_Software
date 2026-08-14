@@ -97,7 +97,7 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
         title={post.title}
         description={post.excerpt}
         images={[post.thumbnail]}
-        datePublished={new Date(post.publishedAt || post.createdAt || Date.now()).toISOString()}
+        datePublished={new Date(post.publishedAt || post.createdAt || "2026-01-01").toISOString()}
         authorName={post.author}
         publisherName={settings?.siteName || "DIGITAL THREE"}
       />

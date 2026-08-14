@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -29,12 +29,17 @@ function TorusKnotShape() {
   );
 }
 
-export function EnergyCore3DCanvas() {
-  const [mounted, setMounted] = useState(false);
+const emptySubscribe = () => () => {};
+function useIsMounted() {
+  return React.useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+export function EnergyCore3DCanvas() {
+  const mounted = useIsMounted();
 
   if (!mounted) return null;
 

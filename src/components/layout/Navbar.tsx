@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, ArrowUpRight, Cpu } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/animations/MagneticButton";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";

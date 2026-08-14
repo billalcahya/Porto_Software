@@ -74,8 +74,8 @@ export function ContactSection({ settings, isEmbedded = false }: ContactProps) {
           <AnimatedGeometryBackground />
 
           {/* Ambient Glow Orbs */}
-          <div className="orb-glow w-[38rem] h-[38rem] bg-sky-400/25 top-10 left-[8%] pointer-events-none" />
-          <div className="orb-glow w-[34rem] h-[34rem] bg-lime-400/25 top-1/2 right-[4%] pointer-events-none" />
+          <div className="orb-glow w-152 h-152 bg-sky-400/25 top-10 left-[8%] pointer-events-none" />
+          <div className="orb-glow w-136 h-136 bg-lime-400/25 top-1/2 right-[4%] pointer-events-none" />
         </>
       )}
 
@@ -112,7 +112,7 @@ export function ContactSection({ settings, isEmbedded = false }: ContactProps) {
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-400 uppercase font-mono tracking-wider">{t("contact.email_us", "Email Us")}</h4>
-                    <p className="text-sm font-bold text-slate-950 mt-0.5 break-all">{settings?.contactEmail || "hello@nexuslabs.dev"}</p>
+                    <p className="text-sm font-bold text-slate-950 mt-0.5 break-all">{settings?.contactEmail || "hello@digitalthree.dev"}</p>
                   </div>
                 </div>
 

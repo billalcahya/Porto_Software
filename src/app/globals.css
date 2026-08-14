@@ -30,8 +30,11 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  selection-background-color: #84cc16;
-  selection-color: #0f172a;
+}
+
+::selection {
+  background-color: #84cc16;
+  color: #0f172a;
 }
 
 /* Glassmorphism utility classes - Premium Ice Blue Atelier */
@@ -152,6 +155,7 @@ body {
 .gradient-text-vibrant {
   background: linear-gradient(135deg, #0284c7 0%, #2563eb 45%, #84cc16 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

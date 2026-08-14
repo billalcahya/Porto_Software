@@ -1,5 +1,4 @@
 import React from "react";
-import Metadata from "next";
 import connectDB from "@/lib/db";
 import { seedDatabase } from "@/lib/seed-data";
 import SiteSettings from "@/models/SiteSettings";
@@ -37,7 +36,7 @@ export async function generateMetadata() {
     const settings = await SiteSettings.findOne().lean();
     if (!settings) return {};
 
-    const title = settings.seo?.metaTitle || `${settings.siteName} | ${settings.tagline}`;
+    const title = settings.seo?.metaTitle || settings.siteName || "DIGITAL THREE";
     const description = settings.seo?.metaDescription || settings.description;
     const keywords = settings.seo?.keywords || [];
     const ogImage = settings.seo?.ogImage || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80";
@@ -64,7 +63,7 @@ export async function generateMetadata() {
     };
   } catch {
     return {
-      title: "DIGITAL THREE | Software House & Enterprise AI Studio",
+      title: "DIGITAL THREE",
       description: "High-performance software engineering, AI LLM integrations, and custom cloud solutions.",
     };
   }
@@ -141,9 +140,9 @@ export default async function HomePage() {
         <AnimatedGeometryBackground />
 
         {/* Continuous Ambient Glow Orbs */}
-        <div className="orb-glow w-[44rem] h-[44rem] bg-sky-400/25 top-10 left-[5%] pointer-events-none" />
-        <div className="orb-glow w-[38rem] h-[38rem] bg-lime-400/25 top-1/3 right-[3%] pointer-events-none" />
-        <div className="orb-glow w-[42rem] h-[42rem] bg-cyan-400/20 bottom-10 left-[10%] pointer-events-none" />
+        <div className="orb-glow w-176 h-176 bg-sky-400/25 top-10 left-[5%] pointer-events-none" />
+        <div className="orb-glow w-152 h-152 bg-lime-400/25 top-1/3 right-[3%] pointer-events-none" />
+        <div className="orb-glow w-2xl h-168 bg-cyan-400/20 bottom-10 left-[10%] pointer-events-none" />
 
         <div className="relative z-10">
           <FAQSection faqs={faqs} isEmbedded />

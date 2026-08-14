@@ -30,6 +30,11 @@ export async function seedDatabase() {
   }
 
   // 2. Site Settings
+  await SiteSettings.updateMany(
+    { "seo.metaTitle": { $regex: /Software House/i } },
+    { $set: { "seo.metaTitle": "DIGITAL THREE" } }
+  );
+
   const settingsCount = await SiteSettings.countDocuments();
   if (settingsCount === 0) {
     await SiteSettings.create({
@@ -60,7 +65,7 @@ export async function seedDatabase() {
         instagram: "https://instagram.com",
       },
       seo: {
-        metaTitle: "DIGITAL THREE | Software House & Enterprise AI Studio",
+        metaTitle: "DIGITAL THREE",
         metaDescription: "We engineer high-performance web applications, enterprise cloud systems, AI LLM solutions, and mobile platforms.",
         keywords: [
           "Software House",
@@ -330,7 +335,7 @@ export async function seedDatabase() {
         company: "Aura Global Financials",
         avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
         message:
-          "NEXUS delivered our AI wealth platform 3 weeks ahead of schedule. The liquid glass UI design and real-time execution speeds wowed our board of directors.",
+          "DIGITAL THREE delivered our AI wealth platform 3 weeks ahead of schedule. The liquid glass UI design and real-time execution speeds wowed our board of directors.",
         rating: 5,
         featured: true,
         published: true,
@@ -342,7 +347,7 @@ export async function seedDatabase() {
         company: "Vortex Networks",
         avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
         message:
-          "Working with NEXUS felt like extending our internal core team with world-class engineers. Their Next.js and Cloud architecture expertise is second to none.",
+          "Working with DIGITAL THREE felt like extending our internal core team with world-class engineers. Their Next.js and Cloud architecture expertise is second to none.",
         rating: 5,
         featured: true,
         published: true,

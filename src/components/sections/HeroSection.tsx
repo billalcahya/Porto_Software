@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Sparkles, Terminal, ShieldCheck, Zap, Layers, Cpu, Code2, Globe } from "lucide-react";
+import { ArrowUpRight, Sparkles, Terminal, ShieldCheck, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/animations/MotionWrapper";
@@ -106,9 +106,9 @@ export function HeroSection({ settings }: HeroProps) {
             <ScrollReveal direction="left" delay={0.3}>
               <div className="relative flex items-center justify-center">
                 {/* Ambient Glowing Tech Rings */}
-                <div className="absolute w-80 h-80 sm:w-[480px] sm:h-[480px] rounded-full bg-[radial-gradient(circle,_var(--tw-gradient-stops))] from-sky-400/30 via-blue-500/20 to-transparent pointer-events-none transform-gpu" />
-                <div className="absolute w-72 h-72 sm:w-[420px] sm:h-[420px] rounded-full border-2 border-sky-300/40 animate-spin-slow pointer-events-none" />
-                <div className="absolute w-60 h-60 sm:w-[350px] sm:h-[350px] rounded-full border-2 border-dashed border-lime-400/50 animate-spin-reverse pointer-events-none" />
+                <div className="absolute w-80 h-80 sm:w-120 sm:h-120 rounded-full bg-[radial-gradient(circle,var(--tw-gradient-stops))] from-sky-400/30 via-blue-500/20 to-transparent pointer-events-none transform-gpu" />
+                <div className="absolute w-72 h-72 sm:w-105 sm:h-105 rounded-full border-2 border-sky-300/40 animate-spin-slow pointer-events-none" />
+                <div className="absolute w-60 h-60 sm:w-87.5 sm:h-87.5 rounded-full border-2 border-dashed border-lime-400/50 animate-spin-reverse pointer-events-none" />
 
                 {/* Extra-Large Prominent Logo Emblem */}
                 <div className="relative z-10 p-2 sm:p-4 animate-float-geometry">
@@ -118,7 +118,7 @@ export function HeroSection({ settings }: HeroProps) {
                     width={500}
                     height={500}
                     priority
-                    className="w-72 h-72 sm:w-96 sm:h-96 md:w-[420px] md:h-[420px] lg:w-[460px] lg:h-[460px] xl:w-[500px] xl:h-[500px] object-contain filter drop-shadow-[0_25px_60px_rgba(2,132,199,0.35)] hover:scale-105 transition-transform duration-500 ease-out"
+                    className="w-72 h-72 sm:w-96 sm:h-96 md:w-105 md:h-105 lg:w-115 lg:h-115 xl:w-125 xl:h-125 object-contain filter drop-shadow-[0_25px_60px_rgba(2,132,199,0.35)] hover:scale-105 transition-transform duration-500 ease-out"
                   />
                 </div>
               </div>

@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "DIGITAL THREE | Software House & Enterprise AI Studio",
+    name: "DIGITAL THREE",
     short_name: "DIGITAL THREE",
     description:
       "Engineered for high performance custom web applications, AI LLM integrations, and cloud platforms.",
@@ -12,9 +12,9 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#0f172a",
     icons: [
       {
-        src: "/favicon.ico",
+        src: "/logo.PNG",
         sizes: "any",
-        type: "image/x-icon",
+        type: "image/png",
       },
     ],
   };

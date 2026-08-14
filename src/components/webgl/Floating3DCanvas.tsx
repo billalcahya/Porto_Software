@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -76,17 +76,22 @@ function SmallFloatingSpheres() {
   );
 }
 
-export function Floating3DCanvas() {
-  const [mounted, setMounted] = useState(false);
+const emptySubscribe = () => () => {};
+function useIsMounted() {
+  return React.useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+}
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+export function Floating3DCanvas() {
+  const mounted = useIsMounted();
 
   if (!mounted) return null;
 
   return (
-    <div className="w-full h-[320px] sm:h-[450px] relative pointer-events-none">
+    <div className="w-full h-80 sm:h-112.5 relative pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
         dpr={[1, 2]}

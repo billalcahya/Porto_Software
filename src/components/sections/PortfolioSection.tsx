@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ExternalLink, Filter, Sparkles, Eye, Maximize2 } from "lucide-react";
-import { GithubIcon } from "@/components/ui/brand-icons";
 import { ScrollReveal } from "@/components/animations/MotionWrapper";
 import { GsapTextReveal } from "@/components/animations/GsapTextReveal";
 import { Badge } from "@/components/ui/badge";
@@ -49,9 +48,9 @@ export function PortfolioSection({ portfolios = [] }: PortfolioProps) {
       <AnimatedGeometryBackground />
 
       {/* Ambient Glow Orbs */}
-      <div className="orb-glow w-[36rem] h-[36rem] bg-sky-300/25 top-10 left-[5%] pointer-events-none" />
-      <div className="orb-glow w-[32rem] h-[32rem] bg-lime-300/25 top-1/2 right-[3%] pointer-events-none" />
-      <div className="orb-glow w-[40rem] h-[40rem] bg-cyan-300/20 bottom-10 left-[15%] pointer-events-none" />
+      <div className="orb-glow w-xl h-144 bg-sky-300/25 top-10 left-[5%] pointer-events-none" />
+      <div className="orb-glow w-lg h-128 bg-lime-300/25 top-1/2 right-[3%] pointer-events-none" />
+      <div className="orb-glow w-160 h-160 bg-cyan-300/20 bottom-10 left-[15%] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
@@ -65,7 +64,7 @@ export function PortfolioSection({ portfolios = [] }: PortfolioProps) {
               </h2>
             </div>
             <Link href="/portfolio">
-              <Button className="gap-2 rounded-full border-2 border-slate-950 bg-white !text-slate-950 hover:!bg-slate-950 hover:!text-white font-extrabold uppercase tracking-wider text-xs px-6 py-6 shadow-md transition-all">
+              <Button className="gap-2 rounded-full border-2 border-slate-950 bg-white text-slate-950! hover:bg-slate-950! hover:text-white! font-extrabold uppercase tracking-wider text-xs px-6 py-6 shadow-md transition-all">
                 {t("portfolio.view_all", "View All Case Studies")}
               </Button>
             </Link>

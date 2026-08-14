@@ -19,7 +19,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    const saved = localStorage.getItem("nexus_lang") as Locale;
+    const saved = (localStorage.getItem("digitalthree_lang") || localStorage.getItem("nexus_lang")) as Locale;
     if (saved === "en" || saved === "id") {
       setLocaleState(saved);
     }
@@ -27,7 +27,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
-    localStorage.setItem("nexus_lang", newLocale);
+    localStorage.setItem("digitalthree_lang", newLocale);
   };
 
   const t = (key: string, fallback?: string): string => {
