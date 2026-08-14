@@ -2,6 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+<<<<<<< Updated upstream
+=======
+import Image from "next/image";
+>>>>>>> Stashed changes
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/animations/MagneticButton";
@@ -43,15 +47,23 @@ export function Navbar({ siteName = "DIGITAL THREE" }: NavbarProps) {
 
   return (
     <header
+<<<<<<< Updated upstream
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
           ? "bg-white/90 backdrop-blur-xl border-b border-sky-200/80 py-3 shadow-xs"
           : "bg-transparent py-5"
       }`}
+=======
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
+        ? "bg-white/85 backdrop-blur-xl border-b border-black/8 py-3 shadow-xs"
+        : "bg-transparent py-5"
+        }`}
+>>>>>>> Stashed changes
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
+<<<<<<< Updated upstream
           <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/logo.PNG"
@@ -65,6 +77,23 @@ export function Navbar({ siteName = "DIGITAL THREE" }: NavbarProps) {
               {siteName}
               <span className="text-lime-500">.</span>
             </span>
+=======
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 sm:w-16 sm:h-20 rounded-xl group-hover:scale-105 transition-transform duration-300">
+              <div className="w-full h-full flex items-center justify-center overflow-hidden relative">
+                {/* 
+                  Make sure you have a logo.png in your public folder! 
+                  Alternatively, change "/logo.png" to "/logo.svg" or whatever your filename is.
+                */}
+                <Image
+                  src="/logo.png"
+                  alt="Company Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+>>>>>>> Stashed changes
           </Link>
 
           {/* Desktop Nav Links */}
