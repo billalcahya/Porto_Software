@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -8,7 +8,7 @@ import * as THREE from 'three';
 function Bubbles({ count = 100 }) {
   const mesh = useRef<THREE.InstancedMesh>(null);
   const dummy = useMemo(() => new THREE.Object3D(), []);
-  
+
   const particles = useMemo(() => {
     const temp = [];
     for (let i = 0; i < count; i++) {
@@ -30,7 +30,7 @@ function Bubbles({ count = 100 }) {
       const a = Math.cos(t) + Math.sin(t * 1) / 10;
       const b = Math.sin(t) + Math.cos(t * 2) / 10;
       const s = Math.max(0.2, Math.cos(t));
-      
+
       dummy.position.set(
         xFactor + Math.cos((t / 10) * factor) + (Math.sin(t * 1) * factor) / 10,
         yFactor + Math.sin((t / 10) * factor) + (Math.cos(t * 2) * factor) / 10,
@@ -51,7 +51,7 @@ function Bubbles({ count = 100 }) {
   return (
     <instancedMesh ref={mesh} args={[undefined, undefined, count]}>
       <sphereGeometry args={[1.5, 32, 32]} />
-      <meshPhysicalMaterial 
+      <meshPhysicalMaterial
         roughness={0.1}
         transmission={1}
         thickness={1}
@@ -63,10 +63,22 @@ function Bubbles({ count = 100 }) {
 }
 
 export function LiveBubblesBackground() {
-  const container = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="absolute inset-0 w-full h-full z-0 bg-[#5ed05c]" />;
+  }
+
   return (
-    <div ref={container} className="absolute inset-0 w-full h-full z-0 bg-[#f7f7f5]">
-      <Canvas eventSource={container} camera={{ position: [0, 0, 40], fov: 60 }}>
+    <div id="live-bubbles-container" className="absolute inset-0 w-full h-full z-0 bg-[#5ed05c]">
+      <Canvas
+        eventSource={typeof document !== 'undefined' ? document.getElementById('live-bubbles-container') || undefined : undefined}
+        camera={{ position: [0, 0, 40], fov: 60 }}
+      >
         <ambientLight intensity={1} />
         <directionalLight position={[10, 10, 10]} intensity={2} color="#ffffff" />
         <directionalLight position={[-10, -10, -10]} intensity={1} color="#a0c0ff" />
