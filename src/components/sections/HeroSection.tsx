@@ -5,6 +5,7 @@ import { Archivo_Black } from "next/font/google";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ISiteSettings } from "@/types";
+import { LiveBubblesBackground } from "@/components/webgl/LiveBubblesBackground";
 
 const archivo = Archivo_Black({ subsets: ["latin"], weight: "400", display: "swap" });
 
@@ -101,17 +102,16 @@ export function HeroSection({ settings }: HeroProps) {
       id="hero"
       className="relative h-screen w-full overflow-hidden bg-[#0a0a0a]"
     >
-      {/* Background Image & Zoom Wrapper */}
+      {/* Live Bubbles Background Wrapper */}
       <div
         ref={bgRef}
         className="absolute inset-0 w-full h-full will-change-transform"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
           transform: 'translate3d(0,0,0) scale(1)',
         }}
-      />
+      >
+        <LiveBubblesBackground />
+      </div>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.5)] to-[rgba(0,0,0,0.7)] pointer-events-none" />
@@ -160,7 +160,7 @@ export function HeroSection({ settings }: HeroProps) {
         {/* Subtitle */}
         <div
           ref={subtitleRef}
-          className="mt-6 sm:mt-8 uppercase tracking-[3px] opacity-70 font-light text-white text-[10px] sm:text-xs md:text-sm text-center px-4 will-change-transform"
+          className="mt-16 uppercase tracking-[3px] opacity-70 font-light text-white text-[10px] sm:text-xs md:text-sm text-center px-4 will-change-transform"
         >
           Creative Developer • Designer • Storyteller
         </div>

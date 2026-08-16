@@ -44,7 +44,7 @@ export function Navbar({ siteName = "DIGITAL THREE" }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled
         ? "bg-white/85 backdrop-blur-xl border-b border-black/8 py-3 shadow-xs"
-        : "bg-transparent py-5"
+        : "bg-transparent py-2"
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
