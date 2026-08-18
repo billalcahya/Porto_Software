@@ -79,6 +79,20 @@ export function PageLoader() {
       `}</style>
 
       <div id="loader-logo" className="animate-fade-in flex flex-col items-center gap-6 mb-8 text-center">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/logo.png"
+            alt="DIGITAL THREE Logo"
+            width={44}
+            height={44}
+            priority
+            className="object-contain shrink-0 drop-shadow-sm"
+          />
+          <span className="text-xl font-extrabold tracking-wider text-zinc-950 font-mono uppercase">
+            DIGITAL THREE<span className="text-blue-600">.</span>
+          </span>
+        </div>
+
         {/* Real Loading Percentage */}
         <span className="text-6xl sm:text-7xl font-light tracking-tighter text-zinc-950">
           {displayProgress}<span className="text-zinc-300 font-extralight">%</span>
